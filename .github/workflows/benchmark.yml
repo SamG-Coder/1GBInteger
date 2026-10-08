@@ -1,0 +1,23 @@
+name: Native SIMD correctness
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  linux:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build AVX2
+        run: g++ -O3 -mavx2 -pthread -std=c++17 main.cpp -o integer_universe
+      - name: Cross-kernel correctness and benchmark
+        run: python3 benchmark.py --mb 16 --steps 5 --threads 4 --repeats 3
+      - name: Inspect emitted vector instructions
+        run: |
+          objdump -d -C integer_universe > disassembly.txt
+          grep -E -m 5 'vpsllq|vpsrlq|vpxor|vpmuludq' disassembly.txt
+      - name: Upload disassembly
+        uses: actions/upload-artifact@v4
+        with:
+          name: x86-avx2-disassembly
+          path: disassembly.txt
