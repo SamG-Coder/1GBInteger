@@ -73,3 +73,18 @@ The benchmark checks SHA-256 hashes of sampled evolved states across all four mo
 **AVX-512:** Not implemented yet. AVX-512DQ includes 64-bit integer multiplication, but the actual benefit depends on CPU instruction support, clocks, memory bandwidth and compiler output. An AVX-512 implementation must have runtime CPU-feature dispatch before being safe to distribute broadly.
 
 **Performance reporting:** This commit has not yet been benchmarked on the user's machine. Do not treat benchmark results from other machines as equivalent.
+
+## Lazy evolution: avoid scanning 1 GB for sparse samples
+
+`lazy.cpp` calculates selected 64-bit limbs directly from the seed and the requested step without allocating the 1 GB integer. The current evolution is a fixed-mask rotation/XOR recurrence, which has the exact closed form `S(t) = ROTL(S(0),t) XOR XOR(ROTL(M,k), k=0..t-1)`. Arbitrary original limbs and mask limbs are reconstructed from the seed.
+
+```bash
+g++ -O3 -std=c++17 lazy.cpp -o integer_universe_lazy
+./integer_universe_lazy --gb 1 --steps 100 --sample-bytes 8192 --out lazy-sample.bin
+g++ -O3 -mavx2 -pthread -std=c++17 main.cpp -o integer_universe
+python3 test_lazy.py
+```
+
+The lazy and full-state modes must produce identical sample files for matching seeds, steps, integer size and sample size. `test_lazy.py` checks 48 configurations. CI is configured to run those comparisons.
+
+**Important limitations:** Lazy evolution is O(sampled limbs × steps), not O(1) in step count; it can become slower for large samples or very high steps. It is a mathematical shortcut specific to this fixed-mask rotation/XOR rule, not a faster way to update a general 1 GB arbitrary-precision integer. Sparse state evaluation is useful for current statistical tests but not for a model whose particles interact globally. It does not validate any quantum-mechanical hypothesis.
