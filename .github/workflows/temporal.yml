@@ -1,0 +1,18 @@
+name: Temporal sampling correctness
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  temporal:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build full and temporal engines
+        run: |
+          g++ -O3 -mavx2 -pthread -std=c++17 main.cpp -o integer_universe
+          g++ -O3 -std=c++17 temporal.cpp -o integer_universe_temporal
+      - name: Verify temporal samples against full evolution
+        run: python3 test_temporal.py
+      - name: Benchmark 1GB logical temporal experiment
+        run: ./integer_universe_temporal --gb 1 --steps 10000 --atoms 64 --interval 10 --out /tmp/temporal.csv
