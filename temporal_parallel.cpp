@@ -30,7 +30,7 @@ int main(int argc,char**argv){try{
  // CSV is intentionally limited: 1 million atoms x 10k steps can generate terabytes.
  uint64_t observationTimes=steps/interval+1;
  if(csv && atoms>1000000ULL/observationTimes)throw std::runtime_error("CSV output exceeds 1 million rows; omit --out for aggregate-only benchmark");
- std::vector<Atom> state(size_t(atoms));
+ std::vector<Atom> state(static_cast<size_t>(atoms));
  for(uint64_t j=0;j<atoms;j++)state[size_t(j)]={(j*limbs)/atoms,0,unsigned(j%64)};
  size_t nthreads=size_t(std::min(threads,atoms));std::vector<Stats> stats(nthreads);
  std::vector<std::thread> workers;workers.reserve(nthreads);
