@@ -1,0 +1,18 @@
+name: Parallel temporal scaling
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  scale:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: g++ -O3 -pthread -std=c++17 temporal_parallel.cpp -o temporal_parallel
+      - name: Single-thread reference
+        run: ./temporal_parallel --gb 1 --atoms 1000 --steps 100 --interval 10 --threads 1
+      - name: Four-thread deterministic comparison
+        run: ./temporal_parallel --gb 1 --atoms 1000 --steps 100 --interval 10 --threads 4
+      - name: 1 million atom scaling run
+        run: ./temporal_parallel --gb 1 --atoms 1000000 --steps 100 --interval 10 --threads 4
