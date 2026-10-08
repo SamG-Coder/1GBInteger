@@ -11,7 +11,7 @@ class Handler(BaseHTTPRequestHandler):
    elif u.path=='/api/run':
     q=urllib.parse.parse_qs(u.query)
     val=lambda key,default:int(q.get(key,[str(default)])[0])
-    payload=json.dumps(run(val('seed',12345),val('bits',65536),val('gb',0),val('steps',1),val('mb',0))).encode();mime='application/json'
+    payload=json.dumps(run(val('seed',12345),val('bits',65536),val('gb',0),val('steps',1),val('mb',0),q.get('mode',['lazy'])[0])).encode();mime='application/json'
    else:self.send_error(404);return
    self.send_response(200);self.send_header('Content-Type',mime);self.send_header('Content-Length',str(len(payload)));self.end_headers();self.wfile.write(payload)
   except Exception as e:
