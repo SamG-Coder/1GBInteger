@@ -32,9 +32,10 @@ with tempfile.TemporaryDirectory() as tmp:
     tmp = pathlib.Path(tmp)
     cases = 0
     for seed in (0, 12345, MASK):
+        atoms = {0: 7, 12345: 8, MASK: 31}[seed]
         for steps, interval in ((0, 1), (1, 1), (63, 1), (64, 1), (65, 1),
                                 (129, 7), (130, 65), (257, 10), (3, 100)):
-            common = ['--mb', 1, '--seed', seed, '--atoms', 8,
+            common = ['--mb', 1, '--seed', seed, '--atoms', atoms,
                       '--steps', steps, '--interval', interval]
             ref = tmp / 'reference.csv'
             run('integer_universe_temporal', [*common, '--out', ref])
@@ -52,7 +53,7 @@ with tempfile.TemporaryDirectory() as tmp:
             final_t = steps // interval * interval
             sample = tmp / 'full.bin'
             run('integer_universe', ['--mb', 1, '--seed', seed, '--steps', final_t,
-                                    '--fast', '--threads', 2, '--sample-bytes', 64, '--out', sample])
+                                    '--fast', '--threads', 2, '--sample-bytes', atoms*8, '--out', sample])
             raw = sample.read_bytes()
             for j, row in enumerate(r for r in expected if r[0] == final_t):
                 assert row[-1] == int.from_bytes(raw[j*8:j*8+8], 'little')

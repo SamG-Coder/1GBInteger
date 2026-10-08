@@ -134,6 +134,6 @@ g++ -O3 -pthread -std=c++17 temporal_parallel.cpp -o temporal_parallel
 ./temporal_parallel --gb 1 --atoms 1000000 --steps 1000 --interval 10 --threads 8
 ```
 
-The command reports observations, ones, a deterministic XOR checksum, elapsed time and observations per second. Compare identical parameters with `--threads 1` and `--threads 8`: observations, ones and checksum must match. This is a scaling experiment, not a physical decay simulation. Runtime scales as O(atoms × steps), and the CSV option is limited to at most one million rows and is substantially slower.
+The command reports observations, ones, a deterministic XOR checksum, elapsed time and observations per second. Compare identical parameters with `--threads 1` and `--threads 8`: observations, ones and checksum must match. This is a scaling experiment, not a physical decay simulation. The parallel engine reconstructs source limbs once per 64-step block and uses exact XOR prefixes to skip unobserved steps. Work is O(atoms × (steps/64 + observations per atom)); it never allocates the logical 1 GB state. Aggregate memory is O(threads). CSV output is limited to one million rows, buffers at most 8 MB of limb values, and emits those computed values in deterministic time/atom order.
 
-GitHub Actions includes a 1-million-atom / 100-step smoke benchmark. **No measured speedup is claimed until the workflow completes successfully.**
+GitHub Actions runs parallel/reference/full comparisons, full-ring boundary tests with undefined-behavior sanitization, and a 1-million-atom / 100-step smoke benchmark. See [measured native results](benchmarks/RESULTS.md) for the 2026-10-09 Ryzen 7 9800X3D measurements, raw results, limitations, and reproduction commands.
