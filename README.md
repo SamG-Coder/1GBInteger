@@ -88,3 +88,24 @@ python3 test_lazy.py
 The lazy and full-state modes must produce identical sample files for matching seeds, steps, integer size and sample size. `test_lazy.py` checks 48 configurations. CI is configured to run those comparisons.
 
 **Important limitations:** Lazy evolution is O(sampled limbs × steps), not O(1) in step count; it can become slower for large samples or very high steps. It is a mathematical shortcut specific to this fixed-mask rotation/XOR rule, not a faster way to update a general 1 GB arbitrary-precision integer. Sparse state evaluation is useful for current statistical tests but not for a model whose particles interact globally. It does not validate any quantum-mechanical hypothesis.
+
+## Dashboard: lazy versus full state
+
+Build both native engines before launching the browser lab:
+
+```bash
+g++ -O3 -mavx2 -pthread -std=c++17 main.cpp -o integer_universe
+g++ -O3 -std=c++17 lazy.cpp -o integer_universe_lazy
+python server.py
+```
+
+On Windows/MinGW-w64, use the same commands with `-o integer_universe.exe` and `-o integer_universe_lazy.exe`.
+
+Open http://localhost:8765 and select **Lazy (sparse)** for tests that sample selected limbs without allocating the full state, or **Full 1 GB** to materialize and evolve every bit. The dashboard defaults to lazy mode. Both modes use the same seed, step count and sample-position mapping. The server runs the selected native executable, not a stand-in pseudorandom stream.
+
+```bash
+python lab.py --gb 1 --steps 100 --bits 65536 --mode lazy --out lazy.json
+python lab.py --gb 1 --steps 100 --bits 65536 --mode full --out full.json
+```
+
+For equal parameters, the resulting `sha256` fields should match. Run `python test_lazy.py` for regression coverage. These are *randomness diagnostics*, not tests of actual atomic decay or entanglement.
