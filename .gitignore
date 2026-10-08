@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.exe
+integer_universe
+integer_universe_pool
+integer_universe_next
+integer_universe_avx2
+*.o
+*.obj
+*.json
