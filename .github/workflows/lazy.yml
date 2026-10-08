@@ -1,0 +1,18 @@
+name: Lazy state correctness
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  compare:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile full and lazy engines
+        run: |
+          g++ -O3 -mavx2 -pthread -std=c++17 main.cpp -o integer_universe
+          g++ -O3 -std=c++17 lazy.cpp -o integer_universe_lazy
+      - name: Compare 48 combinations against full evolution
+        run: python3 test_lazy.py
+      - name: Benchmark 1 GB lazy sample
+        run: ./integer_universe_lazy --gb 1 --steps 100 --sample-bytes 8192 --out /tmp/lazy-sample.bin
