@@ -57,3 +57,19 @@ Tests compare against *ideal independent fair quantum spin measurement statistic
 - 1 GB means decimal 1,000,000,000 bytes (not 1 GiB).
 - Default source requires GCC/Clang-compatible `__builtin_popcountll`; MSVC needs a small portability fix.
 - The main program can report aggregate per-step timing in the chosen runtime; performance results depend strongly on CPU and memory configuration.
+
+## Fused AVX2 cached-mask experiment (October 2026)
+
+The `--avx2-cache` option combines a precomputed 1 GB XOR mask with vectorized 64-bit rotate/carry and XOR operations. It uses approximately 2 GB for state + mask and should be compared with `--avx2`, `--fast` and `--cache-mask` rather than assumed faster. Reading the mask adds bandwidth traffic.
+
+```bash
+./integer_universe --gb 1 --steps 100 --threads 8 --avx2-cache
+python benchmark.py --mb 16 --steps 5 --threads 4 --repeats 3
+python benchmark.py --mb 1000 --steps 10 --threads 8 --repeats 3
+```
+
+The benchmark checks SHA-256 hashes of sampled evolved states across all four modes and reports median step times and speedup relative to scalar. It aborts on any output mismatch. The GitHub Actions workflow runs a 16 MB correctness test and uploads emitted assembly disassembly when Actions are enabled.
+
+**AVX-512:** Not implemented yet. AVX-512DQ includes 64-bit integer multiplication, but the actual benefit depends on CPU instruction support, clocks, memory bandwidth and compiler output. An AVX-512 implementation must have runtime CPU-feature dispatch before being safe to distribute broadly.
+
+**Performance reporting:** This commit has not yet been benchmarked on the user's machine. Do not treat benchmark results from other machines as equivalent.
