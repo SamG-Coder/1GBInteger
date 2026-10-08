@@ -38,3 +38,21 @@ static inline void evolve_avx2(uint64_t* state,size_t begin,size_t end,uint64_t 
         state[i]=((old<<1)|carry)^x;carry=old>>63;
     }
 }
+
+ 
+// Fused cached-mask AVX2: one state read, one mask read, one state write.
+// Unlike scalar cached-mask evolution, the carry propagation is vectorized.
+static inline void evolve_avx2_cached(uint64_t* state,const uint64_t* mask,size_t begin,size_t end,uint64_t boundary){
+    size_t i=begin; uint64_t carry=boundary;
+    for(;i+4<=end;i+=4){
+        const __m256i cur=_mm256_loadu_si256((const __m256i*)(state+i));
+        const __m256i m=_mm256_loadu_si256((const __m256i*)(mask+i));
+        // Each lane takes its carry from the preceding original lane.
+        const __m256i prev=_mm256_set_epi64x((long long)state[i+2],(long long)state[i+1],(long long)state[i],(long long)(carry<<63));
+        const __m256i rotated=_mm256_or_si256(_mm256_slli_epi64(cur,1),_mm256_srli_epi64(prev,63));
+        const __m256i result=_mm256_xor_si256(rotated,m);
+        carry=state[i+3]>>63;
+        _mm256_storeu_si256((__m256i*)(state+i),result);
+    }
+    for(;i<end;i++){uint64_t old=state[i];state[i]=((old<<1)|carry)^mask[i];carry=old>>63;}
+}
