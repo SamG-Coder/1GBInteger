@@ -123,3 +123,17 @@ python3 test_temporal.py
 On Windows, use `-o integer_universe_temporal.exe`. The regression test compares 18 seed/step combinations, each with 8 atom observations, against the full native evolution. CI is configured to run the test and a 1 GB logical-state temporal benchmark.
 
 **Interpretation:** These are deterministic bit observations, not a physical radioactive-decay process. This mode has O(atoms × steps) arithmetic even when observations are infrequent; CSV size is O(atoms × observed steps). The logical integer is not fully materialized. Benchmark timings for sparse observations must not be compared directly with full-buffer evolution timings.
+
+## Parallel million-atom temporal scaling (experimental)
+
+`temporal_parallel.cpp` distributes virtual atoms among persistent worker threads. Each thread maintains local accumulators and statistics, avoiding per-step synchronization and avoiding a full 1 GB allocation. Default aggregate-only mode avoids producing billions of CSV rows.
+
+```bash
+g++ -O3 -pthread -std=c++17 temporal_parallel.cpp -o temporal_parallel
+./temporal_parallel --gb 1 --atoms 1000000 --steps 100 --interval 10 --threads 8
+./temporal_parallel --gb 1 --atoms 1000000 --steps 1000 --interval 10 --threads 8
+```
+
+The command reports observations, ones, a deterministic XOR checksum, elapsed time and observations per second. Compare identical parameters with `--threads 1` and `--threads 8`: observations, ones and checksum must match. This is a scaling experiment, not a physical decay simulation. Runtime scales as O(atoms × steps), and the CSV option is limited to at most one million rows and is substantially slower.
+
+GitHub Actions includes a 1-million-atom / 100-step smoke benchmark. **No measured speedup is claimed until the workflow completes successfully.**
