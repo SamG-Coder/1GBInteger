@@ -109,3 +109,17 @@ python lab.py --gb 1 --steps 100 --bits 65536 --mode full --out full.json
 ```
 
 For equal parameters, the resulting `sha256` fields should match. Run `python test_lazy.py` for regression coverage. These are *randomness diagnostics*, not tests of actual atomic decay or entanglement.
+
+## Temporal virtual-atom sampling
+
+`temporal.cpp` observes the **same selected integer bits across time** without repeatedly reconstructing the full 1 GB state. For the fixed rotation/XOR evolution rule, it maintains the accumulated mask contribution for each selected limb, updating that contribution in O(1) work per simulated step and selected atom. It emits a CSV of step, atom, limb index, bit index, bit measurement, and exact 64-bit limb.
+
+```bash
+g++ -O3 -std=c++17 temporal.cpp -o integer_universe_temporal
+./integer_universe_temporal --gb 1 --seed 12345 --steps 10000 --atoms 64 --interval 10 --out temporal.csv
+python3 test_temporal.py
+```
+
+On Windows, use `-o integer_universe_temporal.exe`. The regression test compares 18 seed/step combinations, each with 8 atom observations, against the full native evolution. CI is configured to run the test and a 1 GB logical-state temporal benchmark.
+
+**Interpretation:** These are deterministic bit observations, not a physical radioactive-decay process. This mode has O(atoms × steps) arithmetic even when observations are infrequent; CSV size is O(atoms × observed steps). The logical integer is not fully materialized. Benchmark timings for sparse observations must not be compared directly with full-buffer evolution timings.
