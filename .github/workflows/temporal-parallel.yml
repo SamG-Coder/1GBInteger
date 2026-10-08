@@ -9,7 +9,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build
-        run: g++ -O3 -pthread -std=c++17 temporal_parallel.cpp -o temporal_parallel
+        run: |
+          g++ -O3 -pthread -std=c++17 temporal_parallel.cpp -o temporal_parallel
+          g++ -O3 -pthread -mavx2 -std=c++17 main.cpp -o integer_universe
+          g++ -O3 -std=c++17 temporal.cpp -o integer_universe_temporal
+          g++ -O2 -fsanitize=undefined -fno-sanitize-recover=all -std=c++17 test_temporal_kernel.cpp -o test_temporal_kernel
+      - name: Assert exact output and ring wrap correctness
+        run: |
+          ./test_temporal_kernel
+          python3 test_temporal_parallel.py
       - name: Single-thread reference
         run: ./temporal_parallel --gb 1 --atoms 1000 --steps 100 --interval 10 --threads 1
       - name: Four-thread deterministic comparison

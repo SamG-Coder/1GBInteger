@@ -8,3 +8,8 @@ integer_universe_avx2
 *.o
 *.obj
 *.json
+*-assembly.s
+temporal_parallel
+integer_universe_temporal
+integer_universe_lazy
+test_temporal_kernel
