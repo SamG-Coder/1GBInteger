@@ -41,8 +41,8 @@ public:
  }
 };
 int main(int argc,char**argv){try{
- uint64_t gb=1,seed=12345,steps=1,mb=0,sampleBytes=1048576,threads=1;bool fast=false,avx2=false,cacheMask=false,persistent=true;std::string samplePath;
- for(int i=1;i<argc;i++){std::string a=argv[i];if(a=="--legacy-threads"){persistent=false;continue;}if(a=="--fast"){fast=true;continue;}if(a=="--avx2"){fast=true;avx2=true;continue;}if(a=="--cache-mask"){cacheMask=true;fast=true;continue;}if(i+1==argc)throw std::runtime_error("Missing argument for "+a);std::string v=argv[++i];if(a=="--out")samplePath=v;else{uint64_t n=std::stoull(v,nullptr,0);if(a=="--gb")gb=n;else if(a=="--mb")mb=n;else if(a=="--seed")seed=n;else if(a=="--steps")steps=n;else if(a=="--sample-bytes")sampleBytes=n;else if(a=="--threads")threads=n;else throw std::runtime_error("Unknown option "+a);}}
+ uint64_t gb=1,seed=12345,steps=1,mb=0,sampleBytes=1048576,threads=1;bool fast=false,avx2=false,cacheMask=false,avx2Cache=false,persistent=true;std::string samplePath;
+ for(int i=1;i<argc;i++){std::string a=argv[i];if(a=="--legacy-threads"){persistent=false;continue;}if(a=="--fast"){fast=true;continue;}if(a=="--avx2"){fast=true;avx2=true;continue;}if(a=="--cache-mask"){cacheMask=true;fast=true;continue;}if(a=="--avx2-cache"){cacheMask=true;fast=true;avx2Cache=true;continue;}if(i+1==argc)throw std::runtime_error("Missing argument for "+a);std::string v=argv[++i];if(a=="--out")samplePath=v;else{uint64_t n=std::stoull(v,nullptr,0);if(a=="--gb")gb=n;else if(a=="--mb")mb=n;else if(a=="--seed")seed=n;else if(a=="--steps")steps=n;else if(a=="--sample-bytes")sampleBytes=n;else if(a=="--threads")threads=n;else throw std::runtime_error("Unknown option "+a);}}
  if(steps>1000||gb>100||mb>100000||sampleBytes>16000000||threads<1||threads>128)throw std::runtime_error("Parameter out of range");
  uint64_t bytes=mb?mb*1000000ULL:gb*1000000000ULL;if(bytes==0||bytes%8)throw std::runtime_error("Size must be nonzero and multiple of 8");size_t limbs=bytes/8;
  std::unique_ptr<uint64_t[]> state(new uint64_t[limbs]);uint64_t stream=seed;
@@ -60,7 +60,7 @@ int main(int argc,char**argv){try{
   if(!fast){uint64_t carry=state[limbs-1]>>63;for(size_t i=0;i<limbs;i++){uint64_t old=state[i];uint64_t next=((old<<1)|carry)^mix(seed^(uint64_t(i)*0x9e3779b97f4a7c15ULL));carry=old>>63;state[i]=next;ones+=__builtin_popcountll(next);digest^=mix(next^i);}}
   else {
    for(size_t w=0;w<workers;w++)boundary[w]=state[cuts[w]?cuts[w]-1:limbs-1]>>63;
-   auto work=[&](size_t w){size_t begin=cuts[w],end=cuts[w+1];if(cacheMask){uint64_t carry=boundary[w];for(size_t i=begin;i<end;i++){uint64_t old=state[i];state[i]=((old<<1)|carry)^mask[i];carry=old>>63;}return;}if(avx2){evolve_avx2(state.get(),begin,end,seed,boundary[w]);return;}uint64_t carry=boundary[w];for(size_t i=begin;i<end;i++){uint64_t old=state[i];uint64_t next=((old<<1)|carry)^mix(seed^(uint64_t(i)*0x9e3779b97f4a7c15ULL));carry=old>>63;state[i]=next;}};
+   auto work=[&](size_t w){size_t begin=cuts[w],end=cuts[w+1];if(avx2Cache){evolve_avx2_cached(state.get(),mask.get(),begin,end,boundary[w]);return;}if(cacheMask){uint64_t carry=boundary[w];for(size_t i=begin;i<end;i++){uint64_t old=state[i];state[i]=((old<<1)|carry)^mask[i];carry=old>>63;}return;}if(avx2){evolve_avx2(state.get(),begin,end,seed,boundary[w]);return;}uint64_t carry=boundary[w];for(size_t i=begin;i<end;i++){uint64_t old=state[i];uint64_t next=((old<<1)|carry)^mix(seed^(uint64_t(i)*0x9e3779b97f4a7c15ULL));carry=old>>63;state[i]=next;}};
    if(pool)pool->run(work);
    else {std::vector<std::thread> temporary;temporary.reserve(workers-1);
      for(size_t w=1;w<workers;w++)temporary.emplace_back(work,w);
