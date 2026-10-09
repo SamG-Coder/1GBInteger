@@ -3,4 +3,4 @@
 *.py text eol=lf
 *.md text eol=lf
 # Preserve raw evidence bytes so recorded SHA-256 hashes survive checkout.
-experiments/raw/* -text
+experiments/raw/* -text whitespace=cr-at-eol
