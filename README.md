@@ -22,6 +22,11 @@ token by 35%/47%. It records matched timings, added resident memory, full-logit
 error and free-running quality diagnostics. These are approximate, opt-in modes;
 the original Q8 projection remains available for prompt processing.
 
+The [Q2 follow-up](experiments/q2-output-traffic/CASE_STUDY.md) adds stock Q2_K
+with explicit 896-to-1024 padding, reducing projection reads to 51.1 MB per
+decode token. Fresh Q8/Q5/Q4 controls, actual generated responses, padding
+checks and numerical comparisons document the speed/quality trade-off.
+
 ## Build
 
 Requires a C++17 compiler with x86-64 AVX2 support and Python 3 (standard library only). AVX2 is compiled in this build; run on an AVX2-capable CPU.

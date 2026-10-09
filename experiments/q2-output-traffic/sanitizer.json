@@ -1,0 +1,45 @@
+{
+  "scope": "Runner, hook and padding test instrumented; existing stock libraries are not.",
+  "flags": [
+    "-O2",
+    "-std=c++17",
+    "-march=native",
+    "-D_WIN32_WINNT=0x0A00",
+    "-fsanitize=undefined",
+    "-fno-sanitize-recover=all"
+  ],
+  "padding_oracle": {
+    "cases": 3000,
+    "padding_zero": true,
+    "max_abs_dot_error": 2.43325e-05
+  },
+  "padding_test_sha256": "cfc345ffb060434c4aa5fa2f618ae5918debd030dc6eb389c6d26655d19c4967",
+  "executable_sha256": "fb4d4ed2982cb36b665e6b0fbd8a8852063a8d857e3bbf78cae1b76b5e2c3319",
+  "runs": [
+    {
+      "mode": "stock",
+      "exit_code": 0,
+      "log_sha256": "e3bd3a15e262cf219a66a9e2a16b22365f7e7bfddfee35c2c498f8b28f910d88"
+    },
+    {
+      "mode": "output-q8",
+      "exit_code": 0,
+      "log_sha256": "62abef64503afe01cf691617b9724c55d9794f48b7b9cb3ca82f5e905211f97d"
+    },
+    {
+      "mode": "output-q5",
+      "exit_code": 0,
+      "log_sha256": "a8608535b5319f8487b99a2143b72188f9efc884f929d1fbe0441bc7624b3060"
+    },
+    {
+      "mode": "output-q4",
+      "exit_code": 0,
+      "log_sha256": "19b92a04f8cc1e81ffff0a2c94b2308af1602f33d0267cd97acbf30ae49d47f2"
+    },
+    {
+      "mode": "output-q2",
+      "exit_code": 0,
+      "log_sha256": "d0ca36ea899e331cbcd902dd7dccb5e4178ddfecfafd14786592f251f3a68f6d"
+    }
+  ]
+}
