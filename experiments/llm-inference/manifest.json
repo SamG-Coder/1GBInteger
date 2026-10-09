@@ -1,0 +1,28 @@
+{
+  "llama_commit": "de7fa0a3c6a2e1b4cd9f22eb8d6bf5b12dbdb63b",
+  "model_revision": "41ba88dbac95fed2528c92514c131d73eb5a174b",
+  "model_file": "Qwen2.5-0.5B-Instruct-Q4_0.gguf",
+  "model_bytes": 352972352,
+  "model_sha256": "c8cd5f37dd1235fb010c45316d4ff8af875e1a4e0ff368b4bf6cacb9053d4919",
+  "compiler": "clang version 22.1.8 (https://github.com/llvm/llvm-project.git ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)\nTarget: x86_64-w64-windows-gnu\nThread model: posix\nInstalledDir: C:/Users/samue/AppData/Local/Microsoft/WinGet/Packages/MartinStorsjo.LLVM-MinGW.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/llvm-mingw-20260616-ucrt-x86_64/bin\nConfiguration file: C:/Users/samue/AppData/Local/Microsoft/WinGet/Packages/MartinStorsjo.LLVM-MinGW.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/llvm-mingw-20260616-ucrt-x86_64/bin/x86_64-w64-windows-gnu.cfg\n",
+  "executable_sha256": "0a9a63f6f5662c26401e40aba8674412e2036d71a769c2b3b1f96ab235030961",
+  "source_sha256": {
+    "CMakeLists.txt": "d3954801f86d2f53cebe14dddf4d1ff249be9e9fc5ed1bcf06a9ea7afa2b6cef",
+    "kernels.cpp": "d1dfd2e70cbdbf675a62ec09e6420e228a836c795b754865e02da2eefaa4ce12",
+    "kernels.h": "2d70cc0643f98b34d3f8ab8ec4ba90f68b6f708b91e8ad1cee97e24344fb4dda",
+    "patch_llama.py": "d3e35662626e460dbf6c6186d96f2d4ffff7922b95a318f1d06e37644e59ed0a",
+    "run_suite.py": "177bedf0669679bcac92956e51da25fcb32bc41d0359c2e281f3b41979ba45a4",
+    "runner.cpp": "a86151ea65df516f24e40fc39a8322f9696d9feafb35c2dd4aec87cb077943ff",
+    "setup.py": "bd6f62ab55ddddad119285ab4cbc76db3130c93a1d349e3e3ae0870c8c8e8a0f",
+    "test_kernels.cpp": "b9c10fcc72ec6d3c1a14fc60c8eb0b099d613bee519e4350490f61d249a29310"
+  },
+  "raw_sha256": {
+    "smoke-binary.json": "f7608e6357a28b7a11742eca0784f2235b0d5fc45ef9c320cb0f24d548c777d4",
+    "smoke-bitplane.json": "ef04814fa80e1488073b9b8487d07797d53af86019cb1785a434af9196c3fe64",
+    "smoke-control.json": "3cb5297a80237de6f34a9059516f25f86f00eee9f2169a728751094f9ba8d656",
+    "smoke-prepack.json": "2bcf807d3e7a93a56b8f8101188071424aa0b7fecf362de57270dbfffe504d97",
+    "smoke-stock.json": "2cfeda8b56c15b86f85a21f6c1f48d8f55a07f67ea832a587905ea4f0d4d58d5",
+    "smoke-ternary.json": "b843d410677aeaf4998bd87b5f0ef966e7cc2ba72b6b39e6e19b5fb462562240"
+  },
+  "utc": "2026-10-09T01:20:27Z"
+}

@@ -24,3 +24,5 @@ test_rule_edges
 xor_inference
 test_xor_inference
 xor_predict
+.local-llm/
+*.gguf

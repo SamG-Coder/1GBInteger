@@ -11,3 +11,5 @@ rule_diagnostics.h -text whitespace=cr-at-eol
 experiments/xor-inference/raw/* -text whitespace=cr-at-eol
 experiments/xor-inference/manifest.json -text whitespace=cr-at-eol
 *.model text eol=lf
+experiments/llm-inference/raw/* -text whitespace=cr-at-eol
+experiments/llm-inference/manifest.json -text whitespace=cr-at-eol
