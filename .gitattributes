@@ -6,3 +6,5 @@
 experiments/raw/* -text whitespace=cr-at-eol
 experiments/rule-comparison/raw/* -text whitespace=cr-at-eol
 experiments/rule-comparison/manifest.json -text whitespace=cr-at-eol
+# Frozen diagnostic copy: keep the exact source bytes hashed at collection time.
+rule_diagnostics.h -text whitespace=cr-at-eol
