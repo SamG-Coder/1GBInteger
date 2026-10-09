@@ -1,5 +1,7 @@
 # 1GBInteger — Integer Universe Atomic Randomness Lab
 
+Licensed under the [MIT Licence](LICENSE). Copyright (c) 2026 SamG-Coder.
+
 Experimental deterministic **1,000,000,000-byte** integer (125 million 64-bit limbs) with native C++ evolution, AVX2 acceleration, persistent worker threads, and a browser dashboard for statistical tests. The seed initializes the state. Evolution is a bit rotation plus XOR with a fixed seed-dependent mask, **not** a physics simulation.
 
 ## Build
