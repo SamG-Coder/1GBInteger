@@ -53,21 +53,21 @@
     77091,
     198
   ],
-  "load_ms": 151.2091,
-  "prepack_ms": 9.2179,
-  "extra_packed_bytes": 9261056,
+  "load_ms": 150.1185,
+  "prepack_ms": 9.3082,
+  "extra_packed_bytes": 2723840,
   "samples": [
     {
       "repeat": 0,
-      "pp_ms": 97.5226,
-      "pp_tps": 481.93957093022544,
-      "generation_ms": 103.4821,
-      "generation_tps": 144.95260532981067,
-      "first_token_ms": 97.6388,
-      "elapsed_ms": 201.1209,
-      "cpu_ms": 1562.5,
-      "cpu_machine_percent": 48.55599293758132,
-      "peak_working_set_bytes": 437616640,
+      "pp_ms": 78.8089,
+      "pp_tps": 596.3793429422312,
+      "generation_ms": 99.4455,
+      "generation_tps": 150.8363877701857,
+      "first_token_ms": 78.9589,
+      "elapsed_ms": 178.4044,
+      "cpu_ms": 1406.25,
+      "cpu_machine_percent": 49.26483035171778,
+      "peak_working_set_bytes": 431149056,
       "hook_calls": 16,
       "tokens": [
         785,
@@ -92,5 +92,6 @@
   ],
   "vocab_size": 151936,
   "instrumented": false,
-  "forced_length": 16
+  "forced_length": 16,
+  "teacher_forced": false
 }

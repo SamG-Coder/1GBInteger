@@ -14,8 +14,10 @@ if __name__=='__main__':
     LOCAL.mkdir(exist_ok=True)
     src=LOCAL/'llama.cpp'
     if not src.exists():
-        run('git','clone','https://github.com/ggml-org/llama.cpp',src)
-        run('git','-C',src,'checkout',LLAMA)
+        run('git','init',src)
+        run('git','-C',src,'remote','add','origin','https://github.com/ggml-org/llama.cpp')
+        run('git','-C',src,'fetch','--depth','1','origin',LLAMA)
+        run('git','-C',src,'checkout','--detach','FETCH_HEAD')
     assert subprocess.check_output(['git','-C',str(src),'rev-parse','HEAD'],text=True).strip()==LLAMA
     model=LOCAL/MODEL
     if not model.exists():urllib.request.urlretrieve(MODEL_URL,model)

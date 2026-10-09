@@ -13,3 +13,5 @@ experiments/xor-inference/manifest.json -text whitespace=cr-at-eol
 *.model text eol=lf
 experiments/llm-inference/raw/* -text whitespace=cr-at-eol
 experiments/llm-inference/manifest.json -text whitespace=cr-at-eol
+experiments/llm-inference/*.json -text whitespace=cr-at-eol
+experiments/llm-inference/*.txt text eol=lf

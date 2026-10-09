@@ -1,0 +1,14 @@
+{
+  "cpu": {
+    "Name": "AMD Ryzen 7 9800X3D 8-Core Processor           ",
+    "NumberOfCores": 8,
+    "NumberOfLogicalProcessors": 16,
+    "L2CacheSize": 8192,
+    "L3CacheSize": 98304
+  },
+  "os": {
+    "Caption": "Microsoft Windows 11 Home",
+    "Version": "10.0.26200",
+    "TotalVisibleMemorySize": 32624436
+  }
+}

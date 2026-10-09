@@ -4,6 +4,13 @@ Licensed under the [MIT Licence](LICENSE). Copyright (c) 2026 SamG-Coder.
 
 Experimental deterministic **1,000,000,000-byte** integer (125 million 64-bit limbs) with native C++ evolution, AVX2 acceleration, persistent worker threads, and a browser dashboard for statistical tests. The seed initializes the state. Evolution is a bit rotation plus XOR with a fixed seed-dependent mask, **not** a physics simulation.
 
+**Real LLM experiment:** [Qwen2.5-0.5B CPU inference case study](experiments/llm-inference/CASE_STUDY.md)
+tests a 353 MB pretrained model with llama.cpp, exact packed integer kernels,
+and approximate binary/ternary transformer projections. It includes repeated
+performance measurements, full-logit/layer comparisons, quality diagnostics,
+assembly inspection and reproducible source. Stock llama.cpp remains the default;
+the synthetic XOR/popcount speedup did not become a robust model-level speedup.
+
 ## Build
 
 Requires a C++17 compiler with x86-64 AVX2 support and Python 3 (standard library only). AVX2 is compiled in this build; run on an AVX2-capable CPU.

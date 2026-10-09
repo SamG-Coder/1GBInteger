@@ -4,7 +4,7 @@ from setup import ROOT,LOCAL,MODEL,MODEL_SHA,MODEL_REV,LLAMA,sha
 HERE=pathlib.Path(__file__).resolve().parent
 RAW=HERE/'raw'
 SCRATCH=LOCAL/'evaluation'
-MODES=['stock','control','prepack','bitplane','binary','ternary']
+MODES=['stock','control','packed','prepack','bitplane','binary','ternary']
 def write(p,s):p.write_text(s,encoding='utf-8',newline='\n')
 def chat(user):return '<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n'+user+'<|im_end|>\n<|im_start|>assistant\n'
 QUESTIONS={
@@ -25,7 +25,7 @@ def run(mode,case,prompt,gen=64,ctx=2048,repeat=3,trace=False,teacher=None,threa
     if mode not in ('stock','control'):assert d['samples'][0]['hook_calls']>0
     return d
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--part',choices=['smoke','timing','accuracy','all'],default='all');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--part',choices=['smoke','timing','accuracy','tuning','all'],default='all');a=p.parse_args()
     RAW.mkdir(exist_ok=True);SCRATCH.mkdir(exist_ok=True)
     assert sha(LOCAL/MODEL)==MODEL_SHA
     if a.part=='smoke':
@@ -36,8 +36,8 @@ def main():
             # Rotate mode order across workloads to reduce fixed-order drift.
             offset=['short','medium','long','extended'].index(case)
             for m in MODES[offset:]+MODES[:offset]:run(m,case,prompt,gen,ctx)
-        for t in [1,4,16]:
-            for m in ['stock','prepack']:run(m,f'threads-{t}',chat(QUESTIONS['math']),gen=64,repeat=3,threads=t)
+        for t in [1,4,8,16]:
+            for m in ['stock','packed','prepack']:run(m,f'threads-{t}',chat(QUESTIONS['math']),gen=64,repeat=3,threads=t)
     if a.part in ('accuracy','all'):
         for case,q in QUESTIONS.items():
             base=run('stock','quality-'+case,chat(q),gen=48,ctx=4096,repeat=1,trace=True)
@@ -45,7 +45,13 @@ def main():
             for m in MODES[1:]:
                 run(m,'quality-'+case,chat(q),gen=48,ctx=4096,repeat=1,trace=True,teacher=teacher)
                 # Independent free-running response measures divergence beyond teacher forcing.
-                if m in ('prepack','binary','ternary'):run(m,'free-'+case,chat(q),gen=48,ctx=4096,repeat=1)
+                if m in ('packed','prepack','binary','ternary'):run(m,'free-'+case,chat(q),gen=48,ctx=4096,repeat=1)
+        cmd=[str(LOCAL/'experiment-build/bench-llm-kernels.exe'),str(LOCAL/MODEL),str(SCRATCH/'quality-math-stock-activation.f32'),str(RAW/'kernel-benchmark.json')]
+        with (SCRATCH/'kernel-benchmark.log').open('w') as log:subprocess.run(cmd,check=True,stdout=log,stderr=log)
+    if a.part in ('tuning','all'):
+        for rep in range(5):
+            modes=['stock','control','packed-call','packed','prepack-wide','prepack']
+            for m in modes[rep:]+modes[:rep]:run(m,f'tuning-{rep}',chat(QUESTIONS['math']),gen=96,repeat=1)
     manifest={'llama_commit':LLAMA,'model_revision':MODEL_REV,'model_file':MODEL,'model_bytes':(LOCAL/MODEL).stat().st_size,'model_sha256':MODEL_SHA,'compiler':subprocess.check_output(['clang++','--version'],text=True),'executable_sha256':sha(LOCAL/'experiment-build/integer-llm.exe'),'source_sha256':{p.name:sha(p) for p in sorted(HERE.iterdir()) if p.suffix in ('.cpp','.h','.py') or p.name=='CMakeLists.txt'},'raw_sha256':{p.name:sha(p) for p in sorted(RAW.glob('*.json'))},'utc':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime())}
     write(HERE/'manifest.json',json.dumps(manifest,indent=2)+'\n')
 if __name__=='__main__':main()

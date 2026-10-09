@@ -1,0 +1,21 @@
+name: Real LLM integer kernel experiments
+on: [push, pull_request]
+jobs:
+  kernels-and-evidence:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify committed experiment evidence
+        run: python experiments/llm-inference/check_results.py
+      - name: Fetch pinned llama.cpp
+        run: |
+          git init .local-llm/llama.cpp
+          git -C .local-llm/llama.cpp remote add origin https://github.com/ggml-org/llama.cpp
+          git -C .local-llm/llama.cpp fetch --depth 1 origin de7fa0a3c6a2e1b4cd9f22eb8d6bf5b12dbdb63b
+          git -C .local-llm/llama.cpp checkout --detach FETCH_HEAD
+          python experiments/llm-inference/patch_llama.py .local-llm/llama.cpp
+      - name: Build and test native integer kernels
+        run: |
+          cmake -S experiments/llm-inference -B .local-llm/test-build -DLLAMA_SOURCE="$PWD/.local-llm/llama.cpp" -DCMAKE_BUILD_TYPE=Release -DGGML_NATIVE=ON
+          cmake --build .local-llm/test-build --target test-llm-kernels -j 4
+          ctest --test-dir .local-llm/test-build --output-on-failure

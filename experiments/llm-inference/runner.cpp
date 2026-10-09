@@ -24,7 +24,12 @@ static bool trace_cb(ggml_tensor * t,bool ask,void * data){
     double elapsed=ms(d.start,Clock::now());
     json node={{"step",d.step},{"name",t->name},{"op",ggml_op_name(t->op)},{"ms",elapsed},{"ne",{t->ne[0],t->ne[1],t->ne[2],t->ne[3]}}};
     std::string name=t->name;
-    if(t->type==GGML_TYPE_F32 && ggml_is_contiguous(t) && (name.rfind("l_out-",0)==0 || name.rfind("ffn_out-",0)==0)){
+    if(d.step==0 && t->op==GGML_OP_MUL_MAT && std::string(t->src[0]->name)=="blk.0.ffn_up.weight" && t->src[1]->type==GGML_TYPE_F32 && ggml_is_contiguous(t->src[1])){
+        auto * input=t->src[1];std::vector<float> v(input->ne[0]);
+        ggml_backend_tensor_get(input,v.data(),ggml_nbytes(input)-v.size()*4,v.size()*4);
+        std::string path=d.prefix+"-activation.f32";std::ofstream f(path,std::ios::binary);f.write((char*)v.data(),v.size()*4);node["input_file"]=path;
+    }
+    if(d.step<2 && t->type==GGML_TYPE_F32 && ggml_is_contiguous(t) && (name.rfind("l_out-",0)==0 || name.rfind("ffn_out-",0)==0)){
         std::vector<float> v(t->ne[0]);
         ggml_backend_tensor_get(t,v.data(),ggml_nbytes(t)-v.size()*4,v.size()*4);
         std::string path=d.prefix+"-"+std::to_string(d.step)+"-"+name+".f32";
@@ -33,10 +38,12 @@ static bool trace_cb(ggml_tensor * t,bool ask,void * data){
     d.nodes.push_back(node);return true;
 }
 static void decode(llama_context * ctx,llama_batch_ext * b,const std::vector<llama_token>& v,int pos){
-    llama_batch_ext_clear(b);
-    for(auto token:v){int i=llama_batch_ext_add_token(b,0,token);llama_pos p=pos++;llama_batch_ext_set_pos(b,i,&p);}
-    llama_batch_ext_set_output_logits(b,int(v.size())-1,true);
-    if(llama_process(ctx,LLAMA_PROCESS_TYPE_DECODE,b))throw std::runtime_error("decode failed");
+    for(size_t offset=0;offset<v.size();){
+        llama_batch_ext_clear(b);int count=std::min(size_t(llama_n_batch(ctx)),v.size()-offset);
+        for(int k=0;k<count;++k){int i=llama_batch_ext_add_token(b,0,v[offset+k]);if(i<0)throw std::runtime_error("batch overflow");llama_pos p=pos++;llama_batch_ext_set_pos(b,i,&p);}
+        llama_batch_ext_set_output_logits(b,count-1,true);
+        if(llama_process(ctx,LLAMA_PROCESS_TYPE_DECODE,b))throw std::runtime_error("decode failed");offset+=count;
+    }
 }
 int main(int argc,char ** argv)try{
     std::map<std::string,std::string> opt;
@@ -84,7 +91,7 @@ int main(int argc,char ** argv)try{
         auto end=Clock::now();double elapsed=ms(start,end),cpu=cpu_ms()-cpu0;PROCESS_MEMORY_COUNTERS pm{};pm.cb=sizeof(pm);GetProcessMemoryInfo(GetCurrentProcess(),&pm,sizeof(pm));
         output["samples"].push_back({{"repeat",r},{"pp_ms",ms(start,pp_end)},{"pp_tps",nt*1000/ms(start,pp_end)},{"generation_ms",ms(gen_start,end)},{"generation_tps",(generate-1)*1000/ms(gen_start,end)},{"first_token_ms",first},{"elapsed_ms",elapsed},{"cpu_ms",cpu},{"cpu_machine_percent",100*cpu/(elapsed*GetActiveProcessorCount(ALL_PROCESSOR_GROUPS))},{"peak_working_set_bytes",pm.PeakWorkingSetSize},{"hook_calls",experiment::calls()},{"tokens",out},{"response",text}});
     }
-    output["vocab_size"]=nv;output["instrumented"]=(!trace.prefix.empty()||opt.count("--logits"));output["forced_length"]=generate;
+    output["vocab_size"]=nv;output["instrumented"]=(!trace.prefix.empty()||opt.count("--logits"));output["forced_length"]=generate;output["teacher_forced"]=!teacher.empty();
     std::ofstream f(opt.at("--output"));f<<output.dump(2)<<'\n';if(!f)throw std::runtime_error("write failed");
     if(!trace.prefix.empty()){std::ofstream tf(trace.prefix+"-nodes.json");tf<<trace.nodes.dump(2);}
     llama_batch_ext_free(batch);llama_free(ctx);llama_model_free(model);llama_backend_free();return 0;
