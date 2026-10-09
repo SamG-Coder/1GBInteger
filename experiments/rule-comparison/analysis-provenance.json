@@ -1,0 +1,7 @@
+{
+  "manifest_sha256": "2f510ba48d50589dee3fa5ef64f3fafca89ee9631ee0525a9b2016db3759be68",
+  "analysis_source_sha256": {
+    "analyze_rule_comparison.py": "73d5f680f83ed48baf0104a2a9829af7161e103eae3bb4fec1108d3efc225bbd",
+    "analyze_experiments.py": "64ddd61e0a068b8988d576f7fababc0361959bdb524b6826ec97946b56d552ae"
+  }
+}

@@ -1,0 +1,1 @@
+{"rule":"xor","mode":"bench","seed":"12345","bytes":16000000,"steps":3,"init_seconds":0.0058203999999999999,"evolution_seconds":0.0018093,"evolution_cpu_seconds":0,"checksum":"1d346c5183778696","step_seconds":[0.00085689999999999996,0.00053689999999999999,0.00041280000000000001],"peak_resident_bytes":52404224}

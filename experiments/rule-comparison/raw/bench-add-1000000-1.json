@@ -1,0 +1,1 @@
+{"rule":"add","mode":"bench","seed":"12345","bytes":1000000,"steps":3,"init_seconds":0.00043110000000000002,"evolution_seconds":0.00036919999999999998,"evolution_cpu_seconds":0,"checksum":"ab387aa844b0132e","step_seconds":[0.0001205,0.00012640000000000001,0.0001205],"peak_resident_bytes":7426048}

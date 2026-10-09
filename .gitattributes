@@ -4,3 +4,5 @@
 *.md text eol=lf
 # Preserve raw evidence bytes so recorded SHA-256 hashes survive checkout.
 experiments/raw/* -text whitespace=cr-at-eol
+experiments/rule-comparison/raw/* -text whitespace=cr-at-eol
+experiments/rule-comparison/manifest.json -text whitespace=cr-at-eol

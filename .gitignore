@@ -19,3 +19,5 @@ structural_experiments
 !experiments/manifest.json
 !experiments/summary.json
 .venv/
+rule_compare
+test_rule_edges

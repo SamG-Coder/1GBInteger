@@ -1,0 +1,1 @@
+{"rule":"local","mode":"bench","seed":"12345","bytes":1000000,"steps":3,"init_seconds":0.00049019999999999999,"evolution_seconds":0.0014365999999999999,"evolution_cpu_seconds":0,"checksum":"457aa0dca7cfb337","step_seconds":[0.001235,9.0299999999999999e-05,0.00010900000000000001],"peak_resident_bytes":7426048}
