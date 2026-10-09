@@ -51,6 +51,11 @@ remain pinned there. Its raw evidence and sources are preserved unchanged.
 python experiments/stock-llama-integration/setup.py
 python experiments/stock-llama-integration/run.py --part smoke
 python experiments/stock-llama-integration/run.py --part all
+python -m pip install numpy
+python experiments/stock-llama-integration/analyze.py
+python experiments/stock-llama-integration/report.py
+python experiments/stock-llama-integration/freeze.py
+python experiments/stock-llama-integration/check_results.py
 ```
 
 The executable is `.local-llm/stock-build/integer-llm.exe`. It accepts the same
@@ -81,3 +86,11 @@ Instrumented trace timings are excluded from performance results.
 Unit tests initialize llama.cpp's FP16 lookup tables before calling its reference
 dot routine. They check 32,000 random Q8 integer-oracle and scaled upstream-dot
 cases over multiple block counts, including the -128 integer domain.
+
+## Outcome
+
+The [case study](CASE_STUDY.md) records the measured result: full stock numerical
+conformance and preserved repacking, but no robust end-to-end speedup. Keep
+`stock` as the default. `stock-plus` remains available to reproduce and extend
+the targeted-kernel experiment. The [summary](summary.json) retains all medians,
+sample ranges, paired speedup ranges and diagnostic responses.

@@ -1,0 +1,21 @@
+name: Stock llama integer integration
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify saved stock comparisons
+        run: python experiments/stock-llama-integration/check_results.py
+      - name: Fetch pinned dependency
+        run: |
+          git init .local-llm/llama.cpp
+          git -C .local-llm/llama.cpp remote add origin https://github.com/ggml-org/llama.cpp
+          git -C .local-llm/llama.cpp fetch --depth 1 origin de7fa0a3c6a2e1b4cd9f22eb8d6bf5b12dbdb63b
+          git -C .local-llm/llama.cpp checkout --detach FETCH_HEAD
+          python experiments/llm-inference/patch_llama.py .local-llm/llama.cpp
+      - name: Native Q8 oracle tests or unsupported-ISA fallback
+        run: |
+          cmake -S experiments/stock-llama-integration -B .local-llm/stock-build -DLLAMA_SOURCE="$PWD/.local-llm/llama.cpp" -DCMAKE_BUILD_TYPE=Release -DGGML_NATIVE=ON
+          cmake --build .local-llm/stock-build --target test-llm-kernels -j 4
+          ctest --test-dir .local-llm/stock-build --output-on-failure

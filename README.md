@@ -11,6 +11,11 @@ performance measurements, full-logit/layer comparisons, quality diagnostics,
 assembly inspection and reproducible source. Stock llama.cpp remains the default;
 the synthetic XOR/popcount speedup did not become a robust model-level speedup.
 
+The follow-up [stock llama.cpp integration](experiments/stock-llama-integration/CASE_STUDY.md)
+preserves stock repacking and prompt processing while replacing only the Q8
+vocabulary projection during decode. It matches stock outputs byte for byte
+in the test suite, but repeated benchmarks do not establish an overall speedup.
+
 ## Build
 
 Requires a C++17 compiler with x86-64 AVX2 support and Python 3 (standard library only). AVX2 is compiled in this build; run on an AVX2-capable CPU.

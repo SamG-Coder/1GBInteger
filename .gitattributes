@@ -15,3 +15,6 @@ experiments/llm-inference/raw/* -text whitespace=cr-at-eol
 experiments/llm-inference/manifest.json -text whitespace=cr-at-eol
 experiments/llm-inference/*.json -text whitespace=cr-at-eol
 experiments/llm-inference/*.txt text eol=lf
+experiments/stock-llama-integration/*.txt text eol=lf
+experiments/stock-llama-integration/*.json -text whitespace=cr-at-eol
+experiments/stock-llama-integration/raw/* -text whitespace=cr-at-eol

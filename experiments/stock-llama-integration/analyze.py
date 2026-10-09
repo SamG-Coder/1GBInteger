@@ -40,6 +40,7 @@ def main():
             for path,d in zip(paths,ds):
                 basepath=path.with_name(path.name[:-len(mode+'.json')]+'stock.json');bd=load(basepath)
                 assert d['prompt_tokens']==bd['prompt_tokens']
+                assert d['samples'][0]['tokens']==bd['samples'][0]['tokens'], 'Timed response drift'
                 ratios.append(d['samples'][0]['generation_tps']/bd['samples'][0]['generation_tps'])
             row['paired_decode_speedup_median']=statistics.median(ratios);row['paired_decode_speedup_min']=min(ratios);row['paired_decode_speedup_max']=max(ratios);timing.append(row)
     result={'timing':timing,'accuracy':accuracy,'quality':quality,'trace_sha256':traces}

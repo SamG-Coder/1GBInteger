@@ -1,0 +1,234 @@
+0000000140019e50 <void experiment::tiled<4>(block_q8_0 const*, experiment::Prepared const*, int, float*)>:
+140019e50: 41 57                       	pushq	%r15
+140019e52: 41 56                       	pushq	%r14
+140019e54: 41 54                       	pushq	%r12
+140019e56: 56                          	pushq	%rsi
+140019e57: 57                          	pushq	%rdi
+140019e58: 53                          	pushq	%rbx
+140019e59: 45 85 c0                    	testl	%r8d, %r8d
+140019e5c: 7e 3f                       	jle	0x140019e9d <void experiment::tiled<4>(block_q8_0 const*, experiment::Prepared const*, int, float*)+0x4d>
+140019e5e: 44 89 c6                    	movl	%r8d, %esi
+140019e61: 48 89 f0                    	movq	%rsi, %rax
+140019e64: 48 c1 e0 05                 	shlq	$0x5, %rax
+140019e68: 49 89 f2                    	movq	%rsi, %r10
+140019e6b: 49 c1 e2 06                 	shlq	$0x6, %r10
+140019e6f: c5 f9 ef c0                 	vpxor	%xmm0, %xmm0, %xmm0
+140019e73: 4c 8d 1c 70                 	leaq	(%rax,%rsi,2), %r11
+140019e77: 48 6b c6 66                 	imulq	$0x66, %rsi, %rax
+140019e7b: 4d 8d 14 b2                 	leaq	(%r10,%rsi,4), %r10
+140019e7f: 41 83 f8 01                 	cmpl	$0x1, %r8d
+140019e83: 75 2d                       	jne	0x140019eb2 <void experiment::tiled<4>(block_q8_0 const*, experiment::Prepared const*, int, float*)+0x62>
+140019e85: 45 31 c0                    	xorl	%r8d, %r8d
+140019e88: c5 e8 57 d2                 	vxorps	%xmm2, %xmm2, %xmm2
+140019e8c: c5 d8 57 e4                 	vxorps	%xmm4, %xmm4, %xmm4
+140019e90: c5 e0 57 db                 	vxorps	%xmm3, %xmm3, %xmm3
+140019e94: c5 f0 57 c9                 	vxorps	%xmm1, %xmm1, %xmm1
+140019e98: e9 a8 02 00 00              	jmp	0x14001a145 <void experiment::tiled<4>(block_q8_0 const*, experiment::Prepared const*, int, float*)+0x2f5>
+140019e9d: c5 e8 57 d2                 	vxorps	%xmm2, %xmm2, %xmm2
+140019ea1: c5 d8 57 e4                 	vxorps	%xmm4, %xmm4, %xmm4
+140019ea5: c5 e0 57 db                 	vxorps	%xmm3, %xmm3, %xmm3
+140019ea9: c5 f0 57 c9                 	vxorps	%xmm1, %xmm1, %xmm1
+140019ead: e9 dd 03 00 00              	jmp	0x14001a28f <void experiment::tiled<4>(block_q8_0 const*, experiment::Prepared const*, int, float*)+0x43f>
+140019eb2: c4 e2 7d 5a 2d c5 56 48 00  	vbroadcasti128	0x4856c5(%rip), %ymm5 # ymm5 = mem[0,1,0,1]
+                                                                        # 0x14049f580 <nlohmann::json_abi_v3_12_0::detail::dtoa_impl::get_cached_power_for_binary_exponent(int)::kCachedPowers+0xfa8>
+140019ebb: 41 89 f0                    	movl	%esi, %r8d
+140019ebe: 41 d1 e8                    	shrl	%r8d
+140019ec1: 4a 8d 7c 19 24              	leaq	0x24(%rcx,%r11), %rdi
+140019ec6: 49 8d 5c 0a 24              	leaq	0x24(%r10,%rcx), %rbx
+140019ecb: 4c 8d 74 08 24              	leaq	0x24(%rax,%rcx), %r14
+140019ed0: c5 e8 57 d2                 	vxorps	%xmm2, %xmm2, %xmm2
+140019ed4: 45 31 e4                    	xorl	%r12d, %r12d
+140019ed7: c5 d8 57 e4                 	vxorps	%xmm4, %xmm4, %xmm4
+140019edb: c5 e0 57 db                 	vxorps	%xmm3, %xmm3, %xmm3
+140019edf: c5 f0 57 c9                 	vxorps	%xmm1, %xmm1, %xmm1
+140019ee3: 45 89 c7                    	movl	%r8d, %r15d
+140019ee6: 41 81 e7 ff ff ff 3f        	andl	$0x3fffffff, %r15d      # imm = 0x3FFFFFFF
+140019eed: 41 c1 e0 02                 	shll	$0x2, %r8d
+140019ef1: 49 c1 e7 06                 	shlq	$0x6, %r15
+140019ef5: 4d 01 c7                    	addq	%r8, %r15
+140019ef8: 45 31 c0                    	xorl	%r8d, %r8d
+140019efb: 0f 1f 44 00 00              	nopl	(%rax,%rax)
+140019f00: 62 a1 d5 28 ef 9c 21 02 00 00 00    	vpxorq	0x2(%rcx,%r12), %ymm5, %ymm19
+140019f0b: 62 a1 fe 28 6f a4 62 02 00 00 00    	vmovdqu64	0x2(%rdx,%r12,2), %ymm20
+140019f16: 62 a1 fe 28 6f ac 62 24 00 00 00    	vmovdqu64	0x24(%rdx,%r12,2), %ymm21
+140019f21: 62 a1 4d 00 ef f6           	vpxord	%xmm22, %xmm22, %xmm22
+140019f27: 62 a1 7d 08 c4 04 62 00     	vpinsrw	$0x0, (%rdx,%r12,2), %xmm0, %xmm16
+140019f2f: 62 a1 fe 28 6f 8c 62 68 00 00 00    	vmovdqu64	0x68(%rdx,%r12,2), %ymm17
+140019f3a: 49 83 c0 02                 	addq	$0x2, %r8
+140019f3e: 62 a2 65 20 50 f4           	vpdpbusd	%ymm20, %ymm19, %ymm22
+140019f44: 62 a2 7d 08 13 d0           	vcvtph2ps	%xmm16, %xmm18
+140019f4a: 62 a1 fe 28 6f 84 62 46 00 00 00    	vmovdqu64	0x46(%rdx,%r12,2), %ymm16
+140019f55: 62 a1 4d 20 fa dd           	vpsubd	%ymm21, %ymm22, %ymm19
+140019f5b: 62 a1 7d 08 c4 34 21 00     	vpinsrw	$0x0, (%rcx,%r12), %xmm0, %xmm22
+140019f63: 62 a1 7c 28 5b db           	vcvtdq2ps	%ymm19, %ymm19
+140019f69: 62 a2 7d 08 13 f6           	vcvtph2ps	%xmm22, %xmm22
+140019f6f: 62 a1 6e 00 59 f6           	vmulss	%xmm22, %xmm18, %xmm22
+140019f75: 62 a2 7d 28 18 f6           	vbroadcastss	%xmm22, %ymm22
+140019f7b: 62 e2 4d 20 a8 d9           	vfmadd213ps	%ymm1, %ymm22, %ymm19 # ymm19 = (ymm22 * ymm19) + ymm1
+140019f81: c4 a1 55 ef 4c 27 de        	vpxor	-0x22(%rdi,%r12), %ymm5, %ymm1
+140019f88: 62 a1 4c 00 57 f6           	vxorps	%xmm22, %xmm22, %xmm22
+140019f8e: 62 a2 75 28 50 f4           	vpdpbusd	%ymm20, %ymm1, %ymm22
+140019f94: 62 b1 4d 20 fa cd           	vpsubd	%ymm21, %ymm22, %ymm1
+140019f9a: 62 a1 7d 08 c4 74 27 ee 00  	vpinsrw	$0x0, -0x24(%rdi,%r12), %xmm0, %xmm22
+140019fa3: 62 e1 7c 28 5b f9           	vcvtdq2ps	%ymm1, %ymm23
+140019fa9: c4 a1 55 ef 4c 23 de        	vpxor	-0x22(%rbx,%r12), %ymm5, %ymm1
+140019fb0: 62 a2 7d 08 13 f6           	vcvtph2ps	%xmm22, %xmm22
+140019fb6: 62 a1 6e 00 59 f6           	vmulss	%xmm22, %xmm18, %xmm22
+140019fbc: 62 a2 7d 28 18 f6           	vbroadcastss	%xmm22, %ymm22
+140019fc2: 62 e2 4d 20 a8 fb           	vfmadd213ps	%ymm3, %ymm22, %ymm23 # ymm23 = (ymm22 * ymm23) + ymm3
+140019fc8: c5 e0 57 db                 	vxorps	%xmm3, %xmm3, %xmm3
+140019fcc: 62 b2 75 28 50 dc           	vpdpbusd	%ymm20, %ymm1, %ymm3
+140019fd2: 62 b1 65 28 fa cd           	vpsubd	%ymm21, %ymm3, %ymm1
+140019fd8: c4 a1 79 c4 5c 23 dc 00     	vpinsrw	$0x0, -0x24(%rbx,%r12), %xmm0, %xmm3
+140019fe0: 62 e1 7c 28 5b f1           	vcvtdq2ps	%ymm1, %ymm22
+140019fe6: c4 81 55 ef 4c 26 de        	vpxor	-0x22(%r14,%r12), %ymm5, %ymm1
+140019fed: c4 e2 79 13 db              	vcvtph2ps	%xmm3, %xmm3
+140019ff2: 62 f1 6e 00 59 db           	vmulss	%xmm3, %xmm18, %xmm3
+140019ff8: c4 e2 7d 18 db              	vbroadcastss	%xmm3, %ymm3
+140019ffd: 62 e2 65 28 a8 f4           	vfmadd213ps	%ymm4, %ymm3, %ymm22 # ymm22 = (ymm3 * ymm22) + ymm4
+14001a003: c5 e0 57 db                 	vxorps	%xmm3, %xmm3, %xmm3
+14001a007: 62 b2 75 28 50 dc           	vpdpbusd	%ymm20, %ymm1, %ymm3
+14001a00d: c5 d8 57 e4                 	vxorps	%xmm4, %xmm4, %xmm4
+14001a011: 62 a1 5d 00 ef e4           	vpxord	%xmm20, %xmm20, %xmm20
+14001a017: 62 b1 65 28 fa cd           	vpsubd	%ymm21, %ymm3, %ymm1
+14001a01d: c4 81 79 c4 5c 26 dc 00     	vpinsrw	$0x0, -0x24(%r14,%r12), %xmm0, %xmm3
+14001a025: 62 81 d5 28 ef 2c 26        	vpxorq	(%r14,%r12), %ymm5, %ymm21
+14001a02c: 62 61 7c 28 5b c1           	vcvtdq2ps	%ymm1, %ymm24
+14001a032: c4 a1 79 c4 4c 62 44 00     	vpinsrw	$0x0, 0x44(%rdx,%r12,2), %xmm0, %xmm1
+14001a03a: c4 e2 79 13 db              	vcvtph2ps	%xmm3, %xmm3
+14001a03f: 62 a2 55 20 50 e0           	vpdpbusd	%ymm16, %ymm21, %ymm20
+14001a045: 62 f1 6e 00 59 db           	vmulss	%xmm3, %xmm18, %xmm3
+14001a04b: c4 e2 7d 18 db              	vbroadcastss	%xmm3, %ymm3
+14001a050: 62 62 65 28 a8 c2           	vfmadd213ps	%ymm2, %ymm3, %ymm24 # ymm24 = (ymm3 * ymm24) + ymm2
+14001a056: c4 e2 79 13 d1              	vcvtph2ps	%xmm1, %xmm2
+14001a05b: c4 a1 55 ef 4c 21 24        	vpxor	0x24(%rcx,%r12), %ymm5, %ymm1
+14001a062: c5 e0 57 db                 	vxorps	%xmm3, %xmm3, %xmm3
+14001a066: 62 b2 75 28 50 d8           	vpdpbusd	%ymm16, %ymm1, %ymm3
+14001a06c: 62 b1 65 28 fa c9           	vpsubd	%ymm17, %ymm3, %ymm1
+14001a072: c4 a1 79 c4 5c 21 22 00     	vpinsrw	$0x0, 0x22(%rcx,%r12), %xmm0, %xmm3
+14001a07a: c5 fc 5b c9                 	vcvtdq2ps	%ymm1, %ymm1
+14001a07e: c4 e2 79 13 db              	vcvtph2ps	%xmm3, %xmm3
+14001a083: c5 ea 59 db                 	vmulss	%xmm3, %xmm2, %xmm3
+14001a087: c4 e2 7d 18 db              	vbroadcastss	%xmm3, %ymm3
+14001a08c: 62 b2 65 28 a8 cb           	vfmadd213ps	%ymm19, %ymm3, %ymm1 # ymm1 = (ymm3 * ymm1) + ymm19
+14001a092: c4 a1 55 ef 1c 27           	vpxor	(%rdi,%r12), %ymm5, %ymm3
+14001a098: 62 a1 64 00 57 db           	vxorps	%xmm19, %xmm19, %xmm19
+14001a09e: 62 b2 65 28 50 e0           	vpdpbusd	%ymm16, %ymm3, %ymm4
+14001a0a4: 62 b1 5d 28 fa d9           	vpsubd	%ymm17, %ymm4, %ymm3
+14001a0aa: c4 a1 79 c4 64 27 fe 00     	vpinsrw	$0x0, -0x2(%rdi,%r12), %xmm0, %xmm4
+14001a0b2: c5 fc 5b db                 	vcvtdq2ps	%ymm3, %ymm3
+14001a0b6: c4 e2 79 13 e4              	vcvtph2ps	%xmm4, %xmm4
+14001a0bb: c5 ea 59 e4                 	vmulss	%xmm4, %xmm2, %xmm4
+14001a0bf: c4 e2 7d 18 e4              	vbroadcastss	%xmm4, %ymm4
+14001a0c4: 62 b2 5d 28 a8 df           	vfmadd213ps	%ymm23, %ymm4, %ymm3 # ymm3 = (ymm4 * ymm3) + ymm23
+14001a0ca: c4 a1 55 ef 24 23           	vpxor	(%rbx,%r12), %ymm5, %ymm4
+14001a0d0: 62 a2 5d 28 50 d8           	vpdpbusd	%ymm16, %ymm4, %ymm19
+14001a0d6: 62 a1 5d 20 fa c1           	vpsubd	%ymm17, %ymm20, %ymm16
+14001a0dc: 62 b1 65 20 fa e1           	vpsubd	%ymm17, %ymm19, %ymm4
+14001a0e2: 62 a1 7d 08 c4 5c 23 ff 00  	vpinsrw	$0x0, -0x2(%rbx,%r12), %xmm0, %xmm19
+14001a0eb: 62 81 7d 08 c4 4c 26 ff 00  	vpinsrw	$0x0, -0x2(%r14,%r12), %xmm0, %xmm17
+14001a0f4: 49 83 c4 44                 	addq	$0x44, %r12
+14001a0f8: c5 fc 5b e4                 	vcvtdq2ps	%ymm4, %ymm4
+14001a0fc: 62 a2 7d 08 13 db           	vcvtph2ps	%xmm19, %xmm19
+14001a102: 62 a2 7d 08 13 c9           	vcvtph2ps	%xmm17, %xmm17
+14001a108: 62 a1 6e 08 59 db           	vmulss	%xmm19, %xmm2, %xmm19
+14001a10e: 62 b1 6e 08 59 d1           	vmulss	%xmm17, %xmm2, %xmm2
+14001a114: 62 e2 7d 28 18 ca           	vbroadcastss	%xmm2, %ymm17
+14001a11a: 62 b1 7c 28 5b d0           	vcvtdq2ps	%ymm16, %ymm2
+14001a120: 62 a2 7d 28 18 db           	vbroadcastss	%xmm19, %ymm19
+14001a126: 62 b2 65 20 a8 e6           	vfmadd213ps	%ymm22, %ymm19, %ymm4 # ymm4 = (ymm19 * ymm4) + ymm22
+14001a12c: 62 92 75 20 a8 d0           	vfmadd213ps	%ymm24, %ymm17, %ymm2 # ymm2 = (ymm17 * ymm2) + ymm24
+14001a132: 4d 39 e7                    	cmpq	%r12, %r15
+14001a135: 0f 85 c5 fd ff ff           	jne	0x140019f00 <void experiment::tiled<4>(block_q8_0 const*, experiment::Prepared const*, int, float*)+0xb0>
+14001a13b: 40 f6 c6 01                 	testb	$0x1, %sil
+14001a13f: 0f 84 4a 01 00 00           	je	0x14001a28f <void experiment::tiled<4>(block_q8_0 const*, experiment::Prepared const*, int, float*)+0x43f>
+14001a145: 4c 89 c6                    	movq	%r8, %rsi
+14001a148: 48 c1 e6 06                 	shlq	$0x6, %rsi
+14001a14c: 62 e1 7c 28 28 c1           	vmovaps	%ymm1, %ymm16
+14001a152: c5 fc 28 ea                 	vmovaps	%ymm2, %ymm5
+14001a156: 62 e2 7d 28 5a 2d 20 54 48 00       	vbroadcasti32x4	0x485420(%rip), %ymm21 # ymm21 = mem[0,1,2,3,0,1,2,3]
+                                                                        # 0x14049f580 <nlohmann::json_abi_v3_12_0::detail::dtoa_impl::get_cached_power_for_binary_exponent(int)::kCachedPowers+0xfa8>
+14001a160: 62 e1 7c 28 28 cb           	vmovaps	%ymm3, %ymm17
+14001a166: c5 e0 57 db                 	vxorps	%xmm3, %xmm3, %xmm3
+14001a16a: 49 01 cb                    	addq	%rcx, %r11
+14001a16d: 62 e1 7c 28 28 d4           	vmovaps	%ymm4, %ymm18
+14001a173: c5 d8 57 e4                 	vxorps	%xmm4, %xmm4, %xmm4
+14001a177: 49 01 ca                    	addq	%rcx, %r10
+14001a17a: 48 01 c8                    	addq	%rcx, %rax
+14001a17d: 4a 8d 34 86                 	leaq	(%rsi,%r8,4), %rsi
+14001a181: c5 f9 c4 0c 32 00           	vpinsrw	$0x0, (%rdx,%rsi), %xmm0, %xmm1
+14001a187: c5 fe 6f 54 32 02           	vmovdqu	0x2(%rdx,%rsi), %ymm2
+14001a18d: 62 e1 fe 28 6f 9c 32 24 00 00 00    	vmovdqu64	0x24(%rdx,%rsi), %ymm19
+14001a198: 4c 89 c2                    	movq	%r8, %rdx
+14001a19b: 48 c1 e2 05                 	shlq	$0x5, %rdx
+14001a19f: 4a 8d 14 42                 	leaq	(%rdx,%r8,2), %rdx
+14001a1a3: 62 e2 7d 08 13 e1           	vcvtph2ps	%xmm1, %xmm20
+14001a1a9: 62 f1 d5 20 ef 8c 11 02 00 00 00    	vpxorq	0x2(%rcx,%rdx), %ymm21, %ymm1
+14001a1b4: c4 e2 75 50 da              	{vex}	vpdpbusd	%ymm2, %ymm1, %ymm3
+14001a1b9: 62 b1 65 28 fa cb           	vpsubd	%ymm19, %ymm3, %ymm1
+14001a1bf: c5 f9 c4 1c 11 00           	vpinsrw	$0x0, (%rcx,%rdx), %xmm0, %xmm3
+14001a1c5: c5 fc 5b c9                 	vcvtdq2ps	%ymm1, %ymm1
+14001a1c9: c4 e2 79 13 db              	vcvtph2ps	%xmm3, %xmm3
+14001a1ce: 62 f1 5e 00 59 db           	vmulss	%xmm3, %xmm20, %xmm3
+14001a1d4: c4 e2 7d 18 db              	vbroadcastss	%xmm3, %ymm3
+14001a1d9: 62 b2 65 28 a8 c8           	vfmadd213ps	%ymm16, %ymm3, %ymm1 # ymm1 = (ymm3 * ymm1) + ymm16
+14001a1df: 62 d1 d5 20 ef 9c 13 02 00 00 00    	vpxorq	0x2(%r11,%rdx), %ymm21, %ymm3
+14001a1ea: 62 a1 7c 00 57 c0           	vxorps	%xmm16, %xmm16, %xmm16
+14001a1f0: c4 e2 65 50 e2              	{vex}	vpdpbusd	%ymm2, %ymm3, %ymm4
+14001a1f5: 62 b1 5d 28 fa db           	vpsubd	%ymm19, %ymm4, %ymm3
+14001a1fb: c4 c1 79 c4 24 13 00        	vpinsrw	$0x0, (%r11,%rdx), %xmm0, %xmm4
+14001a202: c5 fc 5b db                 	vcvtdq2ps	%ymm3, %ymm3
+14001a206: c4 e2 79 13 e4              	vcvtph2ps	%xmm4, %xmm4
+14001a20b: 62 f1 5e 00 59 e4           	vmulss	%xmm4, %xmm20, %xmm4
+14001a211: c4 e2 7d 18 e4              	vbroadcastss	%xmm4, %ymm4
+14001a216: 62 b2 5d 28 a8 d9           	vfmadd213ps	%ymm17, %ymm4, %ymm3 # ymm3 = (ymm4 * ymm3) + ymm17
+14001a21c: 62 d1 d5 20 ef a4 12 02 00 00 00    	vpxorq	0x2(%r10,%rdx), %ymm21, %ymm4
+14001a227: 62 e2 5d 28 50 c2           	vpdpbusd	%ymm2, %ymm4, %ymm16
+14001a22d: 62 b1 7d 20 fa e3           	vpsubd	%ymm19, %ymm16, %ymm4
+14001a233: 62 c1 7d 08 c4 04 12 00     	vpinsrw	$0x0, (%r10,%rdx), %xmm0, %xmm16
+14001a23b: c5 fc 5b e4                 	vcvtdq2ps	%ymm4, %ymm4
+14001a23f: 62 a2 7d 08 13 c0           	vcvtph2ps	%xmm16, %xmm16
+14001a245: 62 a1 5e 00 59 c0           	vmulss	%xmm16, %xmm20, %xmm16
+14001a24b: 62 a2 7d 28 18 c0           	vbroadcastss	%xmm16, %ymm16
+14001a251: 62 b2 7d 20 a8 e2           	vfmadd213ps	%ymm18, %ymm16, %ymm4 # ymm4 = (ymm16 * ymm4) + ymm18
+14001a257: 62 e1 d5 20 ef 84 10 02 00 00 00    	vpxorq	0x2(%rax,%rdx), %ymm21, %ymm16
+14001a262: 62 f2 7d 20 50 c2           	vpdpbusd	%ymm2, %ymm16, %ymm0
+14001a268: 62 b1 7d 28 fa c3           	vpsubd	%ymm19, %ymm0, %ymm0
+14001a26e: c5 f9 c4 14 10 00           	vpinsrw	$0x0, (%rax,%rdx), %xmm0, %xmm2
+14001a274: c4 e2 79 13 d2              	vcvtph2ps	%xmm2, %xmm2
+14001a279: 62 f1 5e 00 59 d2           	vmulss	%xmm2, %xmm20, %xmm2
+14001a27f: 62 e2 7d 28 18 c2           	vbroadcastss	%xmm2, %ymm16
+14001a285: c5 fc 5b d0                 	vcvtdq2ps	%ymm0, %ymm2
+14001a289: 62 f2 7d 20 a8 d5           	vfmadd213ps	%ymm5, %ymm16, %ymm2 # ymm2 = (ymm16 * ymm2) + ymm5
+14001a28f: c4 e3 7d 19 c8 01           	vextractf128	$0x1, %ymm1, %xmm0
+14001a295: c5 f0 58 c0                 	vaddps	%xmm0, %xmm1, %xmm0
+14001a299: c5 f9 c6 c8 01              	vshufpd	$0x1, %xmm0, %xmm0, %xmm1 # xmm1 = xmm0[1,0]
+14001a29e: c5 f8 58 c1                 	vaddps	%xmm1, %xmm0, %xmm0
+14001a2a2: c4 e3 7d 19 d9 01           	vextractf128	$0x1, %ymm3, %xmm1
+14001a2a8: c5 e0 58 c9                 	vaddps	%xmm1, %xmm3, %xmm1
+14001a2ac: c5 f1 c6 d9 01              	vshufpd	$0x1, %xmm1, %xmm1, %xmm3 # xmm3 = xmm1[1,0]
+14001a2b1: c5 f0 58 cb                 	vaddps	%xmm3, %xmm1, %xmm1
+14001a2b5: c4 e3 7d 19 e3 01           	vextractf128	$0x1, %ymm4, %xmm3
+14001a2bb: c5 d8 58 db                 	vaddps	%xmm3, %xmm4, %xmm3
+14001a2bf: c5 e1 c6 e3 01              	vshufpd	$0x1, %xmm3, %xmm3, %xmm4 # xmm4 = xmm3[1,0]
+14001a2c4: c5 e0 58 dc                 	vaddps	%xmm4, %xmm3, %xmm3
+14001a2c8: c4 e3 7d 19 d4 01           	vextractf128	$0x1, %ymm2, %xmm4
+14001a2ce: c5 e8 58 d4                 	vaddps	%xmm4, %xmm2, %xmm2
+14001a2d2: c5 e9 c6 e2 01              	vshufpd	$0x1, %xmm2, %xmm2, %xmm4 # xmm4 = xmm2[1,0]
+14001a2d7: c5 e8 58 d4                 	vaddps	%xmm4, %xmm2, %xmm2
+14001a2db: c5 f8 14 e1                 	vunpcklps	%xmm1, %xmm0, %xmm4 # xmm4 = xmm0[0],xmm1[0],xmm0[1],xmm1[1]
+14001a2df: c4 e3 71 21 c0 4c           	vinsertps	$0x4c, %xmm0, %xmm1, %xmm0 # xmm0 = xmm0[1],xmm1[1],zero,zero
+14001a2e5: c5 d8 16 e3                 	vmovlhps	%xmm3, %xmm4, %xmm4     # xmm4 = xmm4[0],xmm3[0]
+14001a2e9: c5 f8 c6 c3 d4              	vshufps	$0xd4, %xmm3, %xmm0, %xmm0 # xmm0 = xmm0[0,1],xmm3[1,3]
+14001a2ee: c4 e3 59 21 e2 30           	vinsertps	$0x30, %xmm2, %xmm4, %xmm4 # xmm4 = xmm4[0,1,2],xmm2[0]
+14001a2f4: c4 e3 79 21 c2 70           	vinsertps	$0x70, %xmm2, %xmm0, %xmm0 # xmm0 = xmm0[0,1,2],xmm2[1]
+14001a2fa: c5 d8 58 c0                 	vaddps	%xmm0, %xmm4, %xmm0
+14001a2fe: c4 c1 78 11 01              	vmovups	%xmm0, (%r9)
+14001a303: 5b                          	popq	%rbx
+14001a304: 5f                          	popq	%rdi
+14001a305: 5e                          	popq	%rsi
+14001a306: 41 5c                       	popq	%r12
+14001a308: 41 5e                       	popq	%r14
+14001a30a: 41 5f                       	popq	%r15
+14001a30c: c5 f8 77                    	vzeroupper
+14001a30f: c3                          	retq
