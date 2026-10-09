@@ -1,0 +1,35 @@
+[
+  {
+    "file": "models/parity.model",
+    "sha256": "37fdbc6b18be25713dfe4bb5ed1b84147cafe3bb8d8888c93b4261cdb38f1831",
+    "training_seed": "0",
+    "training_count": 1024,
+    "held_out_count": 8192,
+    "held_out_correct": 8192,
+    "task_id": 0,
+    "model": "linear",
+    "feature_count": 17
+  },
+  {
+    "file": "models/majority.model",
+    "sha256": "08c17d289415e4cbee7e9022dd2ae96b4bf77407580efaad304893c517f98543",
+    "training_seed": "0",
+    "training_count": 1024,
+    "held_out_count": 8192,
+    "held_out_correct": 8192,
+    "task_id": 2,
+    "model": "quadratic",
+    "feature_count": 137
+  },
+  {
+    "file": "models/addition-bit2.model",
+    "sha256": "bd338f8ab6b8a675f35ff2d55060dad5c14d3ef2eb6e05170652eec48a117818",
+    "training_seed": "0",
+    "training_count": 1024,
+    "held_out_count": 8192,
+    "held_out_correct": 8192,
+    "task_id": 4,
+    "model": "cubic",
+    "feature_count": 697
+  }
+]

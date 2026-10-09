@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-09",
+  "timezone": "Australia/Sydney",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cpu": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+  "logical_cpus": 16,
+  "base_commit": "eaba46160acec54c3d095330d7be801a21d1b07e",
+  "compiler": "clang version 22.1.8 (https://github.com/llvm/llvm-project.git ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)\nTarget: x86_64-w64-windows-gnu\nThread model: posix\nInstalledDir: C:/Users/samue/AppData/Local/Microsoft/WinGet/Packages/MartinStorsjo.LLVM-MinGW.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/llvm-mingw-20260616-ucrt-x86_64/bin\nConfiguration file: C:/Users/samue/AppData/Local/Microsoft/WinGet/Packages/MartinStorsjo.LLVM-MinGW.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/llvm-mingw-20260616-ucrt-x86_64/bin/x86_64-w64-windows-gnu.cfg\n",
+  "flags": "-O3 -std=c++17",
+  "source_sha256": {
+    "xor_inference.h": "a1b2fe280858109ddfbda98a2edcd8e671079d90c8cbdd7cda5d4f0eff17c512",
+    "xor_inference.cpp": "6aff1d2eb77d2d8d55e3c8c15b9fd8ba8bbb1d1df934d446ccb11a4a00feb382",
+    "test_xor_inference.cpp": "754dcc110dfa98acffd51b4a8dfa61b9123573c4b05b777731992fc83999d3fd",
+    "temporal_kernel.h": "b07968e0e412fbc98aea2ba8fa4f7952ea944700c5c3189a1631320159eb0d2f",
+    "run_xor_inference.py": "904497254a3dbcf47aca32fe63728c60907ed9ee91bbca10ccf3272faa20b468",
+    "experiments/xor-inference/PROTOCOL.md": "12339c20627d0a652101b42d1a3d9448ed7032d44bcbfa2c565d5020579a93f9"
+  },
+  "executable_sha256": "86baa784a93bca8c75a28432048aab12578d141efc6b8b22228e02a52a2564d9",
+  "arguments": [
+    "xor_inference",
+    "experiments/xor-inference/raw"
+  ],
+  "wall_seconds": 3.460936399991624,
+  "outputs": {
+    "experiments/xor-inference/raw/binary-dot.csv": "7f65a7dfb5c7ef7c334ff923f5e6f1340d05d6e7bcf64ff04760513e3024daa2",
+    "experiments/xor-inference/raw/learning.csv": "72630c27044a3dab63e0c4a6c2daac3c5e1aab06217df76c5336847aba12cb34",
+    "experiments/xor-inference/raw/state.csv": "0ce8b8199559298d42f96cff9a0fde6703f45926c70fd91d8a9e18581ede81cc"
+  }
+}

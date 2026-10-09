@@ -1,0 +1,7 @@
+{
+  "manifest_sha256": "071b90243656ae24a5c552adc63ce6cfb2a3ef7a4124b8b3871d7c2899db1bce",
+  "sources": {
+    "analyze_xor_inference.py": "53f7ae54812a846205194235afd4abaea17676dc2ddf35c8aef68e9de42e6a50",
+    "xor_predict.cpp": "6904ef90335508123e1f5948d307bdfb08fabe4ecd59566a51482b94d664681f"
+  }
+}

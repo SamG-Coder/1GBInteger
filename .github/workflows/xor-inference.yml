@@ -1,0 +1,20 @@
+name: XOR inference experiments
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build sanitized constraint tests and native predictor
+        run: |
+          g++ -O2 -std=c++17 -fsanitize=undefined -fno-sanitize-recover=all test_xor_inference.cpp -o test_xor_inference
+          g++ -O3 -std=c++17 xor_predict.cpp -o xor_predict
+      - name: Exhaustive small-system, symbolic and feature tests
+        run: ./test_xor_inference
+      - name: Verify recorded evidence and reproduce analysis
+        run: python3 analyze_xor_inference.py
+      - name: Verify learned model truth tables and native inference
+        run: python3 test_xor_models.py
