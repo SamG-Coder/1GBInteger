@@ -27,6 +27,14 @@ with explicit 896-to-1024 padding, reducing projection reads to 51.1 MB per
 decode token. Fresh Q8/Q5/Q4 controls, actual generated responses, padding
 checks and numerical comparisons document the speed/quality trade-off.
 
+The [integer multiplication research](experiments/kappa-refinement/README.md)
+targets the conditional exponent, with an exact parameter-only candidate
+`kappa = 0.000472038214820` on the unchanged, pinned upstream PR150 circuit.
+It records the 47 strict constraints, inherited assumptions and a fixed-witness
+parameter ceiling. This is not an unconditional linear-time multiplication result.
+The separate [native circuit checker](experiments/circuit-replay/CASE_STUDY.md)
+measures verification speed; those timings do not change the exponent.
+
 ## Build
 
 Requires a C++17 compiler with x86-64 AVX2 support and Python 3 (standard library only). AVX2 is compiled in this build; run on an AVX2-capable CPU.

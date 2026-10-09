@@ -1,0 +1,165 @@
+{
+  "records": [
+    {
+      "test": "unmodified-upstream",
+      "h": 23,
+      "passed": true
+    },
+    {
+      "test": "unmodified-upstream",
+      "h": 25,
+      "passed": true
+    },
+    {
+      "test": "self-xor",
+      "mode": "python",
+      "rejected": true,
+      "error": "ime.perf_counter()-start\n                                     ~~~~~~~^^^^^^^^^^^^^\n  File \"D:\\1GBInteger\\.local-llm\\integer-mult-bounds\\scripts\\experiments\\binary_frame_replay.py\", line 22, in replay\n    assert a!=b;incidence(a,g);incidence(b,g);symbols[a]^=symbols[b]\n           ^^^^\nAssertionError\n"
+    },
+    {
+      "test": "self-xor",
+      "mode": "active",
+      "rejected": true,
+      "error": "self XOR\n"
+    },
+    {
+      "test": "self-xor",
+      "mode": "dense",
+      "rejected": true,
+      "error": "self XOR\n"
+    },
+    {
+      "test": "broken-frame",
+      "mode": "python",
+      "rejected": true,
+      "error": "ger\\.local-llm\\integer-mult-bounds\\scripts\\experiments\\binary_frame_replay.py\", line 10, in replay\n    for c,u in F:assert c and not c&~u and(c.bit_count()in(1,2)or c==u and c.bit_count()==3)\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "broken-frame",
+      "mode": "active",
+      "rejected": true,
+      "error": "invalid frame\n"
+    },
+    {
+      "test": "broken-frame",
+      "mode": "dense",
+      "rejected": true,
+      "error": "invalid frame\n"
+    },
+    {
+      "test": "wrong-output",
+      "mode": "python",
+      "rejected": true,
+      "error": "lt['total_seconds']=time.perf_counter()-start\n                                     ~~~~~~~^^^^^^^^^^^^^\n  File \"D:\\1GBInteger\\.local-llm\\integer-mult-bounds\\scripts\\experiments\\binary_frame_replay.py\", line 27, in replay\n    assert symbols[s]==expected\n           ^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "wrong-output",
+      "mode": "active",
+      "rejected": true,
+      "error": "symbolic output mismatch\n"
+    },
+    {
+      "test": "wrong-output",
+      "mode": "dense",
+      "rejected": true,
+      "error": "symbolic output mismatch\n"
+    },
+    {
+      "test": "missing-scatter",
+      "mode": "python",
+      "rejected": true,
+      "error": "Integer\\.local-llm\\integer-mult-bounds\\scripts\\experiments\\binary_frame_replay.py\", line 48, in replay\n    else:assert x[v:2*v]==[initial[i]^initial[v+i]for i in range(v)]and x[:v]==initial[:v]\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "missing-scatter",
+      "mode": "active",
+      "rejected": true,
+      "error": "full basis map mismatch\n"
+    },
+    {
+      "test": "missing-scatter",
+      "mode": "dense",
+      "rejected": true,
+      "error": "full basis map mismatch\n"
+    },
+    {
+      "test": "missing-source",
+      "mode": "python",
+      "rejected": true,
+      "error": "*R;hist=Counter();sources={int(i):s for i,s in d['sources'].items()};assert len(sources)==v and len(set(sources.values()))==v\n                                                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "test": "missing-source",
+      "mode": "active",
+      "rejected": true,
+      "error": "source count\n"
+    },
+    {
+      "test": "missing-source",
+      "mode": "dense",
+      "rejected": true,
+      "error": "source count\n"
+    },
+    {
+      "test": "out-of-bounds",
+      "mode": "python",
+      "rejected": true,
+      "error": "lay\n    assert a!=b;incidence(a,g);incidence(b,g);symbols[a]^=symbols[b]\n                ~~~~~~~~~^^^^^\n  File \"D:\\1GBInteger\\.local-llm\\integer-mult-bounds\\scripts\\experiments\\binary_frame_replay.py\", line 13, in incidence\n    old=physical[s]\n        ~~~~~~~~^^^\nIndexError: list index out of range\n"
+    },
+    {
+      "test": "out-of-bounds",
+      "mode": "active",
+      "rejected": true,
+      "error": "index out of bounds\n"
+    },
+    {
+      "test": "out-of-bounds",
+      "mode": "dense",
+      "rejected": true,
+      "error": "index out of bounds\n"
+    },
+    {
+      "test": "invalid-json",
+      "mode": "python",
+      "rejected": true,
+      "error": "^^^^^^^^\n  File \"C:\\Users\\samue\\AppData\\Local\\Python\\pythoncore-3.14-64\\Lib\\json\\decoder.py\", line 361, in raw_decode\n    obj, end = self.scan_once(s, idx)\n               ~~~~~~~~~~~~~~^^^^^^^^\njson.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)\n"
+    },
+    {
+      "test": "invalid-json",
+      "mode": "active",
+      "rejected": true,
+      "error": "[json.exception.parse_error.101] parse error at line 1, column 2: syntax error while parsing object key - unexpected end of input; expected string literal\n"
+    },
+    {
+      "test": "invalid-json",
+      "mode": "dense",
+      "rejected": true,
+      "error": "[json.exception.parse_error.101] parse error at line 1, column 2: syntax error while parsing object key - unexpected end of input; expected string literal\n"
+    },
+    {
+      "test": "ubsan",
+      "h": 23,
+      "mode": "active",
+      "passed": true
+    },
+    {
+      "test": "ubsan",
+      "h": 23,
+      "mode": "dense",
+      "passed": true
+    },
+    {
+      "test": "ubsan",
+      "h": 25,
+      "mode": "active",
+      "passed": true
+    },
+    {
+      "test": "ubsan",
+      "h": 25,
+      "mode": "dense",
+      "passed": true
+    }
+  ],
+  "sanitizer_executable_sha256": "7840815c45f45b8ca93c69d53c0f790ee9cbe7d281d926616cf6ac5f5a9187eb"
+}

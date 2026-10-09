@@ -1,0 +1,12 @@
+{
+  "files": {
+    "candidate.json": "cd546a2ebdc00c26daf93bd86dd0237e8159f00a86774fd0e5dd8e5751b5cd43",
+    "check_candidate.py": "aff1828a310b5dc2e1a3db00cd70ae480e7c1501ba44bcb9b8e758d7f8166560",
+    "check_results.py": "72e076afb40c5c0db63480b91343fcd6f079cf2719286b3e7418dc29266aea2b",
+    "freeze.py": "cde6d860b86ea0ec26ffd72a1872557f3e3b9b15ddffa45542b42943fa0a49c2",
+    "independent-check.json": "edd5583969c8835f694cf84968bbd4541d2c3545a9314529e5da08ce3f702a56",
+    "README.md": "870c0728caec9a8f06586d4818c1f18b0752f9e00dabab8f83061e9c73398706",
+    "search.py": "814aea8ecd30714dfe0ca92f13af6f32789fd09f409251d1320d205304536b27",
+    "upstream-verification.txt": "d0f9ccf4d9cbfcf9c3c576ab52261b5a7c45abd9a60b5b0206fb8b5265e60d8c"
+  }
+}

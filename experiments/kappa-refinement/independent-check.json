@@ -1,0 +1,15 @@
+{
+  "kappa": "23601910741/50000000000000",
+  "strict_constraints": 47,
+  "positive_margins": 7,
+  "assembly_family_bound": "1/34",
+  "adapter_gap": "464114687569/3125000000000000000000000000",
+  "absorption_gap": "317431664728296699439066319634370327871111034359721371/781988256681388819368805994667469534488628616955734378450000000000000",
+  "improvement_over_headline_percent": 0.04846146306116992,
+  "improvement_over_secondary_percent": 0.0025296939297069724,
+  "corruptions_rejected": [
+    "next-kappa",
+    "zero-eta",
+    "atom-equality"
+  ]
+}

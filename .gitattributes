@@ -22,3 +22,7 @@ experiments/output-weight-traffic/*.json -text whitespace=cr-at-eol
 experiments/output-weight-traffic/raw/* -text whitespace=cr-at-eol
 experiments/q2-output-traffic/*.json -text whitespace=cr-at-eol
 experiments/q2-output-traffic/raw/* -text whitespace=cr-at-eol
+experiments/circuit-replay/*.json -text whitespace=cr-at-eol
+experiments/circuit-replay/raw/* -text whitespace=cr-at-eol
+experiments/kappa-refinement/*.json -text whitespace=cr-at-eol
+experiments/kappa-refinement/*.txt text eol=lf
