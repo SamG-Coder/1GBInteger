@@ -18,3 +18,5 @@ experiments/llm-inference/*.txt text eol=lf
 experiments/stock-llama-integration/*.txt text eol=lf
 experiments/stock-llama-integration/*.json -text whitespace=cr-at-eol
 experiments/stock-llama-integration/raw/* -text whitespace=cr-at-eol
+experiments/output-weight-traffic/*.json -text whitespace=cr-at-eol
+experiments/output-weight-traffic/raw/* -text whitespace=cr-at-eol

@@ -1,0 +1,412 @@
+{
+  "model_buffers": {
+    "free-code-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "free-code-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "free-code-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "free-conversation-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "free-conversation-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "free-conversation-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "free-fact-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "free-fact-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "free-fact-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "free-instruction-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "free-instruction-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "free-instruction-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "free-math-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "free-math-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "free-math-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-0-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-0-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-0-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-0-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-1-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-1-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-1-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-1-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-2-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-2-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-2-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-2-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-3-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-3-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-3-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-3-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-4-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-4-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-4-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-4-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "long-seed-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-0-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-0-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-0-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-0-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-1-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-1-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-1-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-1-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-2-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-2-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-2-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-2-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-3-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-3-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-3-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-3-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-4-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-4-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-4-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-4-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "medium-seed-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-code-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-code-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-code-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-code-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-conversation-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-conversation-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-conversation-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-conversation-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-fact-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-fact-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-fact-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-fact-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-instruction-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-instruction-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-instruction-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-instruction-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-math-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-math-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-math-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "quality-math-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-0-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-0-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-0-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-0-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-1-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-1-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-1-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-1-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-2-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-2-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-2-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-2-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-3-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-3-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-3-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-3-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-4-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-4-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-4-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-4-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "short-seed-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "smoke-output-q4.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "smoke-output-q5.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "smoke-output-q8.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ],
+    "smoke-stock.log": [
+      "load_tensors:   CPU_Mapped model buffer size =   330.95 MiB",
+      "load_tensors:   CPU_REPACK model buffer size =   184.94 MiB"
+    ]
+  }
+}

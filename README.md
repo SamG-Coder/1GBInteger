@@ -16,6 +16,12 @@ preserves stock repacking and prompt processing while replacing only the Q8
 vocabulary projection during decode. It matches stock outputs byte for byte
 in the test suite, but repeated benchmarks do not establish an overall speedup.
 
+The [output weight traffic study](experiments/output-weight-traffic/CASE_STUDY.md)
+tests stock Q5/Q4 output projections to reduce logical weight reads per decode
+token by 35%/47%. It records matched timings, added resident memory, full-logit
+error and free-running quality diagnostics. These are approximate, opt-in modes;
+the original Q8 projection remains available for prompt processing.
+
 ## Build
 
 Requires a C++17 compiler with x86-64 AVX2 support and Python 3 (standard library only). AVX2 is compiled in this build; run on an AVX2-capable CPU.

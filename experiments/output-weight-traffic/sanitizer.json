@@ -1,0 +1,27 @@
+{
+  "scope": "Runner and traffic hook compiled with undefined-behavior sanitizer; existing stock static libraries are not instrumented.",
+  "flags": "-O2 -std=c++17 -march=native -fsanitize=undefined -fno-sanitize-recover=all",
+  "executable_sha256": "f7f716a95e8ed1981df97e923226a91832fd456f0e4958cecf86b3befc600d13",
+  "runs": [
+    {
+      "mode": "stock",
+      "exit_code": 0,
+      "log_sha256": "6edf8cae43843e56bfb7c4fb76e5df1769c701a5e3ef943155cabd740e1231ca"
+    },
+    {
+      "mode": "output-q8",
+      "exit_code": 0,
+      "log_sha256": "8698cdfec4a308d95cded4b890bf5ee7efa988bb825753b588152c11ff4047af"
+    },
+    {
+      "mode": "output-q5",
+      "exit_code": 0,
+      "log_sha256": "99c6255003359c7b62d44b2ef43d414c83c2e8b98c2e0ff41213b5d727402929"
+    },
+    {
+      "mode": "output-q4",
+      "exit_code": 0,
+      "log_sha256": "e715e1dd87f2a8df049e12cd5bd4933afa8f60cc605ae6089a5642badc683bad"
+    }
+  ]
+}
