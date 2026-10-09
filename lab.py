@@ -33,7 +33,7 @@ def analyze(raw,n):
       'sample':bits[:512], 'sha256':hashlib.sha256(raw).hexdigest(),
       'reference':'Ideal independent quantum Z measurements of |+> give P(0)=P(1)=0.5; not a Bell or interference test.'}
 
-def run(seed=12345,n=65536,gb=0,steps=1,mb=0):
+def run(seed=12345,n=65536,gb=0,steps=1,mb=0,mode='lazy'):
     if not (0<=seed<2**64 and 4096<=n<=1000000 and 0<=steps<=1000 and 0<=gb<=100 and 0<=mb<=100000 and mode in ('lazy','full')):raise ValueError('Invalid parameters')
     if gb or mb:
         binary=ROOT/(('integer_universe_lazy' if mode=='lazy' else 'integer_universe')+('.exe' if os.name=='nt' else ''))

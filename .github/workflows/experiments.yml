@@ -1,0 +1,20 @@
+name: Temporal experiment case studies
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build instruments and reference engines
+        run: |
+          g++ -O3 -std=c++17 -pthread temporal_experiments.cpp -o temporal_experiments
+          g++ -O2 -fsanitize=undefined -fno-sanitize-recover=all -std=c++17 structural_experiments.cpp -o structural_experiments
+          g++ -O3 -mavx2 -std=c++17 -pthread main.cpp -o integer_universe
+          g++ -O3 -std=c++17 lazy.cpp -o integer_universe_lazy
+      - name: Validate every native diagnostic and repaired lab interface
+        run: python3 test_experiments.py
+      - name: Verify saved evidence and reproduce analysis
+        run: python3 analyze_experiments.py

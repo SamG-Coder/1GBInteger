@@ -13,3 +13,9 @@ temporal_parallel
 integer_universe_temporal
 integer_universe_lazy
 test_temporal_kernel
+temporal_experiments
+structural_experiments
+!experiments/**/*.json
+!experiments/manifest.json
+!experiments/summary.json
+.venv/

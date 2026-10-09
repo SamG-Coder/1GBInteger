@@ -137,3 +137,9 @@ g++ -O3 -pthread -std=c++17 temporal_parallel.cpp -o temporal_parallel
 The command reports observations, ones, a deterministic XOR checksum, elapsed time and observations per second. Compare identical parameters with `--threads 1` and `--threads 8`: observations, ones and checksum must match. This is a scaling experiment, not a physical decay simulation. The parallel engine reconstructs source limbs once per 64-step block and uses exact XOR prefixes to skip unobserved steps. Work is O(atoms × (steps/64 + observations per atom)); it never allocates the logical 1 GB state. Aggregate memory is O(threads). CSV output is limited to one million rows, buffers at most 8 MB of limb values, and emits those computed values in deterministic time/atom order.
 
 GitHub Actions runs parallel/reference/full comparisons, full-ring boundary tests with undefined-behavior sanitization, and a 1-million-atom / 100-step smoke benchmark. See [measured native results](benchmarks/RESULTS.md) for the 2026-10-09 Ryzen 7 9800X3D measurements, raw results, limitations, and reproduction commands.
+
+## Recorded temporal experiments
+
+The [2026-10-09 case studies](experiments/README.md) report 32 fixed-protocol temporal runs and 40 materialized small-ring experiments, with raw counters, source hashes, charts, and reproduction commands. They cover temporal correlations, per-atom bias, block and conditional entropy, event waiting times, exact prediction from neighboring histories, perturbation propagation, and recurrence periods.
+
+The main result is structural: adjacent native histories permit exact next-bit prediction even when marginal bit balance and entropy look nearly random. Under the same mask, a one-bit perturbation never spreads; the full-state period divides twice the number of bits. These findings characterize the current rotation/XOR rule, not every deterministic integer model or actual quantum physics.
