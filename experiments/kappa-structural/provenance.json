@@ -1,0 +1,24 @@
+{
+  "HEAD": "40d4038760ebb6d6d3d702ce88fa3645de29f0c1",
+  "working_tree_clean": true,
+  "source_sha256": {
+    "research/bit-reuse-147/word147.py": "ca7c2ece02cfdf6e9fd8ab39f207753dc59b8d67e376ad8d0c98adcec820c8ce",
+    "research/bit-reuse-147/frames147.py": "7345f18dca75fd20084830a40427067b4e7567d20b67f12f17f2d91abad9a471",
+    "research/bit-reuse-147/price147.py": "45e5a176e78be42019b0121438ec2443dba1d5db3b57883501d015c8093caecd",
+    "research/bit-reuse-147/make_plan.py": "e902664696e8694550e2e3e3a465ecabb834b3494a8f33b5d2f3c91d7a57c20c",
+    "research/bit-reuse-147/plan.json": "0d139f703057ede52ac43dc32ea55d5dee2fcb91df7fada42e70d240500fd62d",
+    "research/bit-reuse-147/row.json": "3796cc0c7226f20867365f70ee36b00be2fb303cc92ad80cd06d43f55e4908bc",
+    "scripts/paired_cube_network.py": "293662b7f8772dd398399a1c19966faf7d155f024543d0c06601eabb800f35cf",
+    "scripts/structured_bulk_assembly.py": "e99467e14211fba699878ed036e1e2362eb8e395dc22f9ecdcecc7fbf2cc736d",
+    "scripts/three_stage_cover_network.py": "7e0ad6fd1921b6905a53ce1eeaa03d3bb3a8a8bbaa0382516ea98b636f46335e",
+    "certificates/paired-cube-complex-input.json": "11894aa8fd4d5e258ec534726eba5fc9c9fa7b826f993e229425c31ee2ad2440",
+    "certificates/paired-cube-bit-input.json": "23461b66f3a87d4dc87ef209105df4de41d2ef076568ff29b9ea0a0747f01d96",
+    "references/partial-gauge/pr97/SOURCE.json": "68fb539abcd6df21d142e4e204b6e9482eb7f9cd3907650f54bd058070266596"
+  },
+  "object_sha256": {
+    "70355a3192028852598e96624ae29b389e664451:references/paired-cube/pr97-subset/selection.json": "407fac7fc3f3497ddf347fc7a820a6b863c2147d18f1be325b57d37998475a3e",
+    "5a46ac37ae2e2f8f75637cb2cf6b9d0b36afc436:research/gauge-recycling/row.json": "075c8ff2f9f1b25f6b81dc0c6ec31adc766944cb59badc4bc6e42668993ca073"
+  },
+  "PR151_row_equal": true,
+  "local_row_sha256": "3fd35abc2a2bd36d4b550aae9476ea565f968fd80fd44aaef9bfa5ff283b70e4"
+}

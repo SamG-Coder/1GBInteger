@@ -10,3 +10,4 @@ jobs:
           python-version: '3.12'
       - run: python experiments/circuit-replay/check_results.py
       - run: python experiments/kappa-refinement/check_results.py
+      - run: python experiments/kappa-structural/check_results.py

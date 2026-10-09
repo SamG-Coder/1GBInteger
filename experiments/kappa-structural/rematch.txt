@@ -1,0 +1,14 @@
+[140.6s] Donor bases 5000/23530
+[150.7s] Donor bases 10000/23530
+[161.9s] Donor bases 15000/23530
+[174.5s] Donor bases 20000/23530
+[185.5s] Donor matrix (420616, 23), 73.8 MiB
+[199.0s] Recipients 2000/8181, edges 8459
+[204.8s] Recipients 4000/8181, edges 26157
+[217.6s] Recipients 6000/8181, edges 151730
+[235.3s] Recipients 8000/8181, edges 598996
+[236.7s] Assignment matrix (12396, 5303), 501.5 MiB
+[239.0s] Saving 0.000472806534: 3338 pairs, 23979 registers
+[241.8s] Saving 0.000473: 3338 pairs, 23979 registers
+[244.0s] Saving 0.00048: 3338 pairs, 23979 registers
+[246.2s] Saving 0.00046: 3338 pairs, 23979 registers

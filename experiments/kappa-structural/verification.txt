@@ -1,0 +1,10 @@
+[1.7s] Ledger rebuilt: 23979 registers, 3338 handoffs
+[149.2s] Exact new frame checks 1000/4878
+[155.6s] Exact new frame checks 2000/4878
+[161.7s] Exact new frame checks 3000/4878
+[167.9s] Exact new frame checks 4000/4878
+[170.7s] PASS all 4878 new moves nested over Q with nondegenerate endpoints
+[172.2s] PASS complete formal identity over F2
+[175.4s] PASS complete formal identity over Z
+[181.4s] PASS five scalar replays; stale/early/vlast corruptions rejected
+[182.3s] PASS conditional kappa 236077489139/500000000000000 = 0.000472154978278

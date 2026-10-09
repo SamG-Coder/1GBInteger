@@ -26,3 +26,5 @@ experiments/circuit-replay/*.json -text whitespace=cr-at-eol
 experiments/circuit-replay/raw/* -text whitespace=cr-at-eol
 experiments/kappa-refinement/*.json -text whitespace=cr-at-eol
 experiments/kappa-refinement/*.txt text eol=lf
+experiments/kappa-structural/*.json -text whitespace=cr-at-eol
+experiments/kappa-structural/*.txt text eol=lf

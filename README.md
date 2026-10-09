@@ -32,6 +32,11 @@ targets the conditional exponent, with an exact parameter-only candidate
 `kappa = 0.000472038214820` on the unchanged, pinned upstream PR150 circuit.
 It records the 47 strict constraints, inherited assumptions and a fixed-witness
 parameter ceiling. This is not an unconditional linear-time multiplication result.
+The [structural search follow-up](experiments/kappa-structural/README.md)
+reproduces PR151's gauge/recycling composition, tests larger matching and gauge
+searches, and certifies `kappa = 0.000472154978278`. The gain over PR151's reported
+value is only a parameter refinement; the structural searches found no further
+improvement. Exact geometry, complete formal replays and failed searches are recorded.
 The separate [native circuit checker](experiments/circuit-replay/CASE_STUDY.md)
 measures verification speed; those timings do not change the exponent.
 
