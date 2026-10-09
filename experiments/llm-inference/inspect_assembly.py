@@ -25,5 +25,5 @@ assert any('ggml_fp16_to_fp32' in l for l in report['functions']['experiment::pa
 (HERE/'assembly.json').write_text(json.dumps(report,indent=2)+'\n',newline='\n')
 excerpt=[]
 for name in names[:2]:excerpt.extend(blocks[name]);excerpt.append('')
-(HERE/'assembly-excerpts.txt').write_text('\n'.join(excerpt),newline='\n')
+(HERE/'assembly-excerpts.txt').write_text('\n'.join(excerpt).rstrip()+'\n',newline='\n')
 print('Verified inline packed loop has no calls; retained comparison has fp16 conversion calls')

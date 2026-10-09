@@ -12,7 +12,7 @@
     "check_results.py": "b2b4f9001b5b62048852aa09c92cd42f26300f2a0531f63c6eb7cd21034c9dd5",
     "CMakeLists.txt": "cad2829e4a407d3169714225a3d085aa0fd487c9e4f33e2a447303a3a9d63978",
     "freeze.py": "9b24eb98c0aac141830f200b78355fe7e665a4d92f203fdf1bc5116d5da11551",
-    "inspect_assembly.py": "cf58823d0f72c6c2eac27977a327c2729162c2c832e7a767587b26fe73f0dc2f",
+    "inspect_assembly.py": "8be88262c0388cedd306b7af545e3d3f8349b65be23f378dc066384bff1b3be0",
     "kernels.cpp": "5d04d00df669a4d41decb15526e6527b2f56dcf8b70af2ce2b6632c891c57b81",
     "kernels.h": "ee68a8907ebdbd05d1cd1421dc78d36931420a5f6eaf25ad610edf8e7c507df4",
     "memory_probe.cpp": "5b733595fb7d8adae4ddcc1e6809ad262247ea2e1061ffe3f085478459074e4c",
@@ -165,7 +165,7 @@
   },
   "evidence_sha256": {
     "accuracy.json": "57f9ed8b3f68a2e0ceaeceaa57f8d8f9d31535b3524df9c8e58763d8f71197a8",
-    "assembly-excerpts.txt": "a011223ecb3cf51c6fd595d0fd58356c5faff1f28c4d27b402644e896585f505",
+    "assembly-excerpts.txt": "1ac1014a882156c951b07cb88ebee2892c90cc57b9beac8617917209a0d8fe11",
     "assembly.json": "2f2eaf3af413f83f04581cc4dd6eba919c4d951d0974231d5bf0c58f5962c754",
     "CASE_STUDY.md": "fa6aa1ca132a8409e0953f0c7d298f262e9b11f693e3e9a424bbd8bcefe2dd0f",
     "CMakeLists.txt": "cad2829e4a407d3169714225a3d085aa0fd487c9e4f33e2a447303a3a9d63978",
@@ -176,5 +176,5 @@
     "README.md": "047295b20aee55be466f8184f18c9be9d134ad43cf5d54604351f236380133e6",
     "summary.json": "f3687da0e8fee381f3c279278feae8b6525cb036abc2a6ab8c262b4bc3e8499b"
   },
-  "utc": "2026-10-09T01:38:57Z"
+  "utc": "2026-10-09T01:39:18Z"
 }
